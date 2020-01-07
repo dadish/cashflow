@@ -1,4 +1,4 @@
-const menifest = [
+export default [
   // data
   { id: "vocabEnUS", src: "assets/data/vocab_en_us.json", type: "json" },
   { id: "careers", src: "assets/data/careers.json", type: "json" },
