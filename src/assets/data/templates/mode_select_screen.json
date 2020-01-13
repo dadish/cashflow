@@ -1,0 +1,125 @@
+{
+    "template": {
+        "version": "10",
+        "dreamBackground": {
+            "asset": "DreamBackground",
+            "x": "0.05",
+            "y": "0.05",
+            "width": "1024",
+            "height": "768"
+        },
+        "onlineBtn": {
+            "asset": "MovieClip",
+            "x": "516",
+            "y": "347.05",
+            "width": "256",
+            "height": "188"
+        },
+        "onlineBtnIcon": {
+            "asset": "OnlineBtn",
+            "x": "572",
+            "y": "377",
+            "width": "152",
+            "height": "112"
+        },
+        "partySelectCard": {
+            "asset": "CreateGameSheet",
+            "x": "175.5",
+            "y": "60",
+            "width": "673",
+            "height": "586"
+        },
+        "passAndPlayBtn": {
+            "asset": "MovieClip",
+            "x": "248",
+            "y": "347.05",
+            "width": "256",
+            "height": "188"
+        },
+        "passAndPlayBtnIcon": {
+            "asset": "PassAndPlayBtn",
+            "x": "314",
+            "y": "394",
+            "width": "132",
+            "height": "76.75"
+        },
+        "onlineTitle": {
+            "font": "Helvetica Light",
+            "size": "12",
+            "color": "0x573664",
+            "x": "536.05",
+            "y": "499.85",
+            "width": "215.95",
+            "height": "20.15",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Online"
+        },
+        "passAndPlayTitle": {
+            "font": "Helvetica Light",
+            "size": "12",
+            "color": "0x563774",
+            "x": "267.5",
+            "y": "499.85",
+            "width": "217",
+            "height": "19.15",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Pass and Play"
+        },
+        "titleText": {
+            "font": "Helvetica",
+            "size": "45",
+            "color": "0x573562",
+            "x": "267.95",
+            "y": "277.5",
+            "width": "482",
+            "height": "51.5",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "true",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Select a Game Mode"
+        },
+        "backArrow": {
+            "asset": "NextArrow",
+            "x": "266.1",
+            "y": "648.15",
+            "width": "22",
+            "height": "26"
+        },
+        "backBtn": {
+            "asset": "NextTab",
+            "x": "250.1",
+            "y": "632.15",
+            "width": "218",
+            "height": "60"
+        },
+        "backText": {
+            "font": "Helvetica",
+            "size": "18",
+            "color": "0x573664",
+            "x": "296.05",
+            "y": "652",
+            "width": "155.05",
+            "height": "31.8",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "true",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Back"
+        }
+    }
+}

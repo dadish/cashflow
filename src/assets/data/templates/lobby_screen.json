@@ -1,0 +1,136 @@
+{
+    "template": {
+        "version": "15",
+        "backArrow": {
+            "asset": "NextArrow",
+            "x": "266.1",
+            "y": "648.15",
+            "width": "22",
+            "height": "26"
+        },
+        "disconnectTab": {
+            "asset": "NextTab",
+            "x": "250.1",
+            "y": "632.15",
+            "width": "218",
+            "height": "60"
+        },
+        "joinGameBtn": {
+            "asset": "NextTab",
+            "x": "539.3",
+            "y": "632.15",
+            "width": "218",
+            "height": "60"
+        },
+        "lobbyBackground": {
+            "asset": "LobbyBackground",
+            "x": "0",
+            "y": "0",
+            "width": "1024",
+            "height": "736"
+        },
+        "lobbyList": {
+            "asset": "LobbyList",
+            "x": "200",
+            "y": "268",
+            "width": "620",
+            "height": "315"
+        },
+        "mainSheet": {
+            "asset": "MainSheet",
+            "x": "175.5",
+            "y": "60",
+            "width": "673",
+            "height": "586"
+        },
+        "nextArrow": {
+            "asset": "NextArrow",
+            "x": "725.3",
+            "y": "648.15",
+            "width": "22",
+            "height": "26"
+        },
+        "refreshBtn": {
+            "asset": "LobbyButton",
+            "x": "196.75",
+            "y": "588.85",
+            "width": "40",
+            "height": "40"
+        },
+        "disconnectTabTitle": {
+            "font": "Helvetica",
+            "size": "20",
+            "color": "0x573664",
+            "x": "296.05",
+            "y": "652",
+            "width": "155.05",
+            "height": "24",
+            "selectable": "true",
+            "multiline": "false",
+            "wordWrap": "false",
+            "bold": "true",
+            "align": "left",
+            "text": "Back"
+        },
+        "joinGameTitle": {
+            "font": "Helvetica",
+            "size": "20",
+            "color": "0x573664",
+            "x": "547.95",
+            "y": "652",
+            "width": "168.6",
+            "height": "24",
+            "selectable": "true",
+            "multiline": "false",
+            "wordWrap": "false",
+            "bold": "true",
+            "align": "right",
+            "text": "Play"
+        },
+        "lobbyTitle": {
+            "font": "Helvetica",
+            "size": "45",
+            "color": "0x573562",
+            "x": "299.3",
+            "y": "189",
+            "width": "425.45",
+            "height": "49",
+            "selectable": "true",
+            "multiline": "false",
+            "wordWrap": "false",
+            "bold": "false",
+            "align": "center",
+            "text": "Select a Game"
+        },
+        "refreshText": {
+            "font": "Helvetica",
+            "size": "14",
+            "color": "0x0",
+            "x": "236.75",
+            "y": "598.45",
+            "width": "354.7",
+            "height": "24",
+            "selectable": "true",
+            "multiline": "false",
+            "wordWrap": "false",
+            "bold": "true",
+            "align": "left",
+            "text": "Refresh"
+        },
+        "feedbackText": {
+            "font": "Helvetica",
+            "size": "14",
+            "color": "0x573562",
+            "x": "203.05",
+            "y": "243.45",
+            "width": "617.9",
+            "height": "18",
+            "selectable": "true",
+            "multiline": "false",
+            "wordWrap": "false",
+            "bold": "false",
+            "align": "center",
+            "text": "Select a Game"
+        }
+    }
+}

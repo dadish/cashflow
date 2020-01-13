@@ -1,0 +1,225 @@
+{
+  "doodadDeck": {
+    "cards": [
+      {
+        "type": "doodad",
+        "title": "LUNCH WITH FRIENDS",
+        "cost": 40
+      },
+      {
+        "type": "doodad",
+        "title": "GO TO CASINO",
+        "cost": 200
+      },
+      {
+        "type": "doodad",
+        "title": "TAX AUDIT - OUCH!",
+        "cost": 350
+      },
+      {
+        "type": "doodad",
+        "title": "REPAINT HOUSE",
+        "cost": 600
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW SPEAKERS FOR STEREO",
+        "cost": 500
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW CELL PHONE",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW MUSIC CDS",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "BUY A LATTE AND CAPPUCCINO FOR YOU AND A FRIEND",
+        "cost": 10
+      },
+      {
+        "type": "doodad",
+        "title": "PLAY 2 ROUNDS OF GOLF",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "GO TO BALL GAME",
+        "cost": 50
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW WRIST WATCH",
+        "cost": 150
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW BOWLING BALL",
+        "cost": 80
+      },
+      {
+        "type": "doodad",
+        "title": "GO OUT TO DINNER",
+        "cost": 80
+      },
+      {
+        "type": "doodad",
+        "title": "PLAY YOUR LUCKY LOTTERY NUMBERS",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "FURNITURE SALE",
+        "cost": 300
+      },
+      {
+        "type": "doodad",
+        "title": "COULDN'T RESIST NEW PAINTING BY LOCAL ARTIST",
+        "cost": 200
+      },
+      {
+        "type": "doodad",
+        "title": "CAR'S AIR CONDITIONING DIES",
+        "cost": 700
+      },
+      {
+        "type": "doodad",
+        "title": "CAR NEEDS NEW TIRES",
+        "cost": 300
+      },
+      {
+        "type": "doodad",
+        "title": "MUST HAVE NEW SUNGLASSES",
+        "cost": 80
+      },
+      {
+        "type": "doodad",
+        "title": "YOUR ANNIVERSARY",
+        "cost": 200
+      },
+      {
+        "type": "doodad",
+        "title": "FAMILY VACATION",
+        "cost": 2000
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW FISHING ROD",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "GO TO AIR SHOW",
+        "cost": 120
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW CLOTHES",
+        "cost": 250
+      },
+      {
+        "type": "doodad",
+        "title": "RUMOR OF LAYOFF, GO BACK TO SCHOOL FOR ADDED SKILLS",
+        "cost": 220
+      },
+      {
+        "type": "doodad",
+        "title": "HIGH SCHOOL REUNION",
+        "cost": 250
+      },
+      {
+        "type": "doodad",
+        "title": "GO TO A CONCERT",
+        "cost": 180
+      },
+      {
+        "type": "doodad",
+        "title": "BUY NEW GOLF BALLS",
+        "cost": 20
+      },
+      {
+        "type": "doodad",
+        "title": "VISIT DENTIST",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "BUY CAPPUCCINO MACHINE",
+        "cost": 150
+      },
+      {
+        "type": "doodad",
+        "title": "BUY A FOOD PROCESSOR",
+        "cost": 150
+      },
+      {
+        "type": "doodad",
+        "title": "BUY A NEW TENNIS RACKET",
+        "cost": 200
+      },
+      {
+        "type": "doodad",
+        "title": "SHOPPING!",
+        "cost": 350
+      },
+      {
+        "type": "doodad",
+        "title": "PARK IN HANDICAPPED ZONE",
+        "cost": 100
+      },
+      {
+        "type": "doodad",
+        "title": "WATER HEATER LEAKS",
+        "cost": 450
+      },
+      {
+        "type": "doodad",
+        "title": "SON'S COLLEGE TUITION",
+        "cost": 1500,
+        "child": "has"
+      },
+      {
+        "type": "doodad",
+        "title": "BIRTHDAY PARTY",
+        "cost": 100,
+        "child": "has"
+      },
+      {
+        "type": "doodad",
+        "title": "YOUR CHILD NEEDS BRACES",
+        "cost": 2000,
+        "child": "has"
+      },
+      {
+        "type": "doodad",
+        "title": "YOUR DAUGHTER'S WEDDING",
+        "cost": 2000,
+        "child": "has"
+      },
+      {
+        "type": "doodad",
+        "title": "BUY TOYS FOR YOUR KIDS",
+        "cost": 50,
+        "child": "per"
+      },
+      {
+        "type": "specialDoodad",
+        "title": "BUY BIG SCREEN TV",
+        "cost": 4000,
+        "payment": 120,
+        "copy": "(If you use a credit card, add $4000 to credit card liability and add a payment of $120 to your monthly expenses)"
+      },
+      {
+        "type": "specialDoodad",
+        "title": "NEW BOAT",
+        "cost": 18000,
+        "payment": 340,
+        "copy": "(Downpay $1000 and add a $17,000 boat loan as a new liability and add a new boat loan payment of $340 to expenses)"
+      }
+    ]
+  }
+}

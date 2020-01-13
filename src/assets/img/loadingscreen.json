@@ -1,0 +1,22 @@
+{
+
+"images": [
+    "assets/img/loadingscreen.png"
+],
+
+"frames": [
+    [3, 3, 2048, 1536, 0, 0, 0],
+    [3, 1543, 804, 120, 0, 0, 0]
+],
+
+"animations": {
+    "loadingscreen": { "frames": [0] },
+    "loadBar": { "frames": [1] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:d2ab9453445ce045bf054c9e511d7b90:c245c365502b3ac4adfbf45dae0478ce:686d20a6af23e991135fb31ca380b2ad$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

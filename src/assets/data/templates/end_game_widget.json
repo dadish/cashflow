@@ -1,0 +1,74 @@
+{
+    "template": {
+        "version": "9",
+        "background": {
+            "asset": "BackgroundMC",
+            "x": "624.05",
+            "y": "82.85",
+            "width": "342",
+            "height": "601"
+        },
+        "dream": {
+            "asset": "DreamMC",
+            "x": "761.05",
+            "y": "215.2",
+            "width": "68",
+            "height": "50"
+        },
+        "end_btn": {
+            "asset": "ButtonMC",
+            "x": "750.05",
+            "y": "610",
+            "width": "90",
+            "height": "30"
+        },
+        "title_text": {
+            "font": "HelveticaRounded LT Std Bd",
+            "size": "36",
+            "color": "0x9e9380",
+            "x": "690.55",
+            "y": "135.4",
+            "width": "220.65",
+            "height": "65.9",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Winner!"
+        },
+        "name_text": {
+            "font": "HelveticaRounded LT Std Bd",
+            "size": "18",
+            "color": "0x9e9380",
+            "x": "671.25",
+            "y": "308.2",
+            "width": "259.3",
+            "height": "77.05",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Cory is the winner! He won by achieving his dream."
+        },
+        "button_text": {
+            "font": "HelveticaRounded LT Std Bd",
+            "size": "18",
+            "color": "0x0",
+            "x": "754.05",
+            "y": "612.75",
+            "width": "82",
+            "height": "25.2",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Menu"
+        }
+    }
+}

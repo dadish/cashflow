@@ -1,0 +1,28 @@
+{
+
+"images": [
+    "assets/img/ui2.png"
+],
+
+"frames": [
+    [3, 3, 691, 679, 0, 0, 0],
+    [698, 3, 691, 679, 0, 0, 0],
+    [3, 686, 691, 679, 0, 0, 0],
+    [698, 686, 691, 679, 0, 0, 0],
+    [3, 1369, 1346, 1172, 0, 0, 0]
+],
+
+"animations": {
+    "deckBigDeal": { "frames": [0] },
+    "deckDoodads": { "frames": [1] },
+    "deckMarket": { "frames": [2] },
+    "deckSmallDeal": { "frames": [3] },
+    "main_sheet": { "frames": [4] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c48ed571234a285386e45efa41b0618c:d1b4de546a300f9588ad9c5f7811b152:56cbde1bbf049bc117e5a8b87eea74cc$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

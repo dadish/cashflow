@@ -1,0 +1,20 @@
+{
+
+"images": [
+    "assets/img/board.png"
+],
+
+"frames": [
+    [3, 3, 1842, 1221, 0, 0, 0]
+],
+
+"animations": {
+    "board": { "frames": [0] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c94eee3cb06817b3435f71949e15005c:07eb018c5f8614ee490f68e3210c6c7b:1ba50494ab51047a1700d7014bdc8f00$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

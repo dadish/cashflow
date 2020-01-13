@@ -1,8 +1,7 @@
-export default [
+module.exports = [
   // data
   { id: "vocabEnUS", src: "assets/data/vocab_en_us.json", type: "json" },
   { id: "careers", src: "assets/data/careers.json", type: "json" },
-
   { id: "smallDeal", src: "assets/data/smalldeal.json", type: "json" },
   { id: "bigDeal", src: "assets/data/bigdeal.json", type: "json" },
   { id: "doodads", src: "assets/data/doodads.json", type: "json" },
@@ -70,51 +69,51 @@ export default [
   {
     id: "titleImage",
     src: "assets/img/loadingscreen.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
   {
     id: "dice",
     src: "assets/img/dice.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
   {
     id: "board",
     src: "assets/img/board.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
   {
     id: "background",
     src: "assets/img/background_01.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
   {
     id: "statement",
     src: "assets/img/statement.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
-  { id: "ui", src: "assets/img/ui.json", isSpritesheet: "true", type: "json" },
+  { id: "ui", src: "assets/img/ui.json", isSpritesheet: true, type: "json" },
   {
     id: "fastTrackSheet",
     src: "assets/img/fasttrack.json",
-    isSpritesheet: "true",
+    isSpritesheet: true,
     type: "json"
   },
   {
     id: "ui2",
     src: "assets/img/ui2.json",
     type: "json",
-    isSpritesheet: "true"
+    isSpritesheet: true
   },
   {
     id: "chat",
     src: "assets/img/chat.json",
     type: "json",
-    isSpritesheet: "true"
+    isSpritesheet: true
   },
 
   // fonts

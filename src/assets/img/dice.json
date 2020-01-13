@@ -1,0 +1,30 @@
+{
+
+"images": [
+    "assets/img/dice.png"
+],
+
+"frames": [
+    [3, 3, 326, 326, 0, -12, -12],
+    [333, 3, 325, 326, 0, -12, -12],
+    [662, 3, 325, 326, 0, -12, -12],
+    [3, 333, 326, 325, 0, -12, -12],
+    [333, 333, 325, 325, 0, -12, -12],
+    [662, 333, 325, 325, 0, -12, -12]
+],
+
+"animations": {
+    "die2": { "frames": [0] },
+    "die1": { "frames": [1] },
+    "die5": { "frames": [2] },
+    "die6": { "frames": [3] },
+    "die3": { "frames": [4] },
+    "die4": { "frames": [5] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:5c4d98484eb550c061ac6a7fead5b0d9:1b0feca22a8148de61023e5997619f68:a9eb8dba3547e43a2d5a32d5258f7dc9$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

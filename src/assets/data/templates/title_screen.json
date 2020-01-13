@@ -1,0 +1,26 @@
+{
+    "template": {
+        "version": "20",
+        "titleText": {
+            "asset": "TitleText",
+            "x": "443.95",
+            "y": "248.9",
+            "width": "144.35",
+            "height": "20.4"
+        },
+        "playOnlineBtn": {
+            "asset": "PlayOnlineBtn",
+            "x": "291.95",
+            "y": "466.95",
+            "width": "454",
+            "height": "98"
+        },
+        "playOfflineBtn": {
+            "asset": "PlayOfflineBtn",
+            "x": "291.95",
+            "y": "582.95",
+            "width": "454",
+            "height": "98"
+        }
+    }
+}

@@ -14,7 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "assets:fetch": "npm-run-all assets:fetch-data assets:fetch-images",
+    "assets:fetch-data": "node scripts/assetsFetch.js",
+    "assets:fetch-images": "node scripts/assetsFetchImages.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +33,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fs-extra": "^8.1.0",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "ora": "^4.0.3",
+    "pify": "^4.0.1",
+    "request": "^2.88.0",
+    "rimraf": "^3.0.0"
   }
 }

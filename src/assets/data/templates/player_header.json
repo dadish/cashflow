@@ -1,0 +1,72 @@
+{
+    "template": {
+        "version": "14",
+        "icon": {
+            "asset": "PlayerIcon",
+            "x": "1",
+            "y": "14.5",
+            "width": "37",
+            "height": "36"
+        },
+        "playerStatusTag": {
+            "asset": "PlayerStatusTag",
+            "x": "28.6",
+            "y": "34.9",
+            "width": "106",
+            "height": "26"
+        },
+        "progressBar": {
+            "asset": "ProgressBar",
+            "x": "24",
+            "y": "4.25",
+            "width": "108.75",
+            "height": "10"
+        },
+        "progressBarBackground": {
+            "asset": "ProgressBarBackground",
+            "x": "21.65",
+            "y": "2.75",
+            "width": "113.25",
+            "height": "13.25"
+        },
+        "smallBg": {
+            "asset": "SmallBackground",
+            "x": "6.05",
+            "y": "83.95",
+            "width": "149",
+            "height": "132"
+        },
+        "playerStatusTagText": {
+            "font": "Helvetica",
+            "size": "14",
+            "color": "0x573562",
+            "x": "36.1",
+            "y": "38.4",
+            "width": "89.45",
+            "height": "18",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Downsized: 3"
+        },
+        "playerNameText": {
+            "font": "Helvetica",
+            "size": "16",
+            "color": "0x573562",
+            "x": "34.05",
+            "y": "19.25",
+            "width": "104.2",
+            "height": "24",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "true",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Player 1"
+        }
+    }
+}

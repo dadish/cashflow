@@ -1,0 +1,219 @@
+{
+    "template": {
+        "version": "17",
+        "backArrow": {
+            "asset": "NextArrow",
+            "x": "266.1",
+            "y": "652.15",
+            "width": "22",
+            "height": "26"
+        },
+        "backBtn": {
+            "asset": "NextTab",
+            "x": "250.1",
+            "y": "632.15",
+            "width": "218",
+            "height": "60"
+        },
+        "chooseDreamTab": {
+            "asset": "NextTab",
+            "x": "580.1",
+            "y": "632.15",
+            "width": "218",
+            "height": "60"
+        },
+        "dreamBackground": {
+            "asset": "DreamBackground",
+            "x": "0",
+            "y": "0",
+            "width": "1024",
+            "height": "768"
+        },
+        "dreamImage": {
+            "asset": "DreamImage",
+            "x": "232.6",
+            "y": "408.1",
+            "width": "254",
+            "height": "147"
+        },
+        "mainSheet": {
+            "asset": "MainSheet",
+            "x": "172.05",
+            "y": "67.1",
+            "width": "673",
+            "height": "586"
+        },
+        "middleLine": {
+            "asset": "MiddleLine",
+            "x": "515.4",
+            "y": "187.3",
+            "width": "5",
+            "height": "445.85"
+        },
+        "nameLine": {
+            "asset": "NameLine",
+            "x": "257.55",
+            "y": "210.7",
+            "width": "232.6",
+            "height": "3"
+        },
+        "nextArrow": {
+            "asset": "NextArrow",
+            "x": "766.1",
+            "y": "652.15",
+            "width": "22",
+            "height": "26"
+        },
+        "playerIcon": {
+            "asset": "PlayerIcon",
+            "x": "188.6",
+            "y": "178.05",
+            "width": "87",
+            "height": "86"
+        },
+        "backText": {
+            "font": "Helv*",
+            "size": "20",
+            "color": "0x573664",
+            "x": "296.05",
+            "y": "649.15",
+            "width": "155.05",
+            "height": "31.8",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Back"
+        },
+        "chooseDreamText": {
+            "font": "Helvetica",
+            "size": "20",
+            "color": "0x0",
+            "x": "594.05",
+            "y": "649.15",
+            "width": "159",
+            "height": "22.2",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "false",
+            "bold": "true",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Choose this Dream"
+        },
+        "chooseDreamDescText": {
+            "font": "Helvetica",
+            "size": "14",
+            "color": "0x0",
+            "x": "218.3",
+            "y": "583.4",
+            "width": "288.05",
+            "height": "45.75",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Own a Condo in New York"
+        },
+        "selectDreamListTitle": {
+            "font": "Helv*",
+            "size": "14",
+            "color": "0x0",
+            "x": "530.4",
+            "y": "187.3",
+            "width": "288.05",
+            "height": "18.5",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Select a Dream"
+        },
+        "playerName": {
+            "font": "Helv*",
+            "size": "18",
+            "color": "0x0",
+            "x": "350.35",
+            "y": "187.3",
+            "width": "159.8",
+            "height": "32",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Cory Heald"
+        },
+        "occupationText": {
+            "font": "Helv*",
+            "size": "16",
+            "color": "0x0",
+            "x": "360.35",
+            "y": "216.3",
+            "width": "86.65",
+            "height": "19.75",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Police Police"
+        },
+        "playerNumber": {
+            "font": "Helv*",
+            "size": "20",
+            "color": "0x0",
+            "x": "256.55",
+            "y": "181.5",
+            "width": "90.05",
+            "height": "27.7",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Player 1:"
+        },
+        "occupationTitle": {
+            "font": "Helv*",
+            "size": "16",
+            "color": "0x0",
+            "x": "256.05",
+            "y": "212.5",
+            "width": "135.3",
+            "height": "27.7",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "false",
+            "align": "left",
+            "vAlign": "top",
+            "#text": "Occupation:"
+        },
+        "chooseDreamTitle": {
+            "font": "Helvetica",
+            "size": "20",
+            "color": "0x0",
+            "x": "224.8",
+            "y": "558.9",
+            "width": "288.05",
+            "height": "27.7",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "true",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Own a Condo in New York"
+        }
+    }
+}

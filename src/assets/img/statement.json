@@ -1,0 +1,20 @@
+{
+
+"images": [
+    "assets/img/statement.png"
+],
+
+"frames": [
+    [3, 3, 1392, 1424, 0, 0, 0]
+],
+
+"animations": {
+    "sheet_bk": { "frames": [0] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:ed0d95e85d50c1b0f008cd1824e9796e:9488efed691c73ac20c781fc18442771:7dda2d162dcfc5b27d59a47a86b7b905$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

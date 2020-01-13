@@ -1,0 +1,35 @@
+{
+    "template": {
+        "version": "1",
+        "loadBar": {
+            "asset": "LoadBar",
+            "x": "621.95",
+            "y": "709.95",
+            "width": "402",
+            "height": "60"
+        },
+        "splashBackground": {
+            "asset": "SplashBackground",
+            "x": "0",
+            "y": "0",
+            "width": "1024",
+            "height": "768"
+        },
+        "clickText": {
+            "font": "Helvetica Bold",
+            "size": "26",
+            "color": "0x4e354b",
+            "x": "630.4",
+            "y": "727.45",
+            "width": "390.95",
+            "height": "34",
+            "selectable": "true",
+            "multiline": "true",
+            "wordWrap": "true",
+            "bold": "true",
+            "align": "center",
+            "vAlign": "top",
+            "#text": "Click Anywhere to Continue"
+        }
+    }
+}
