@@ -1,6 +1,6 @@
 import React from "react";
 
-import Stripe from "components/Stripe";
+import Stripe from "containers/Stripe";
 import colors from "styles/colors";
 
 function App() {
