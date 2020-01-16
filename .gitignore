@@ -24,3 +24,4 @@ yarn-error.log*
 
 # editor
 .vscode
+jsconfig.json
