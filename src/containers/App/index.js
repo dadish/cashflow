@@ -1,16 +1,10 @@
 import React from "react";
 
-import Stripe from "containers/Stripe";
+import Counter from "containers/Counter";
 import colors from "styles/colors";
 
 function App() {
-  return (
-    <Stripe
-      collection="fast-track"
-      name="buy_a_gold_mine"
-      color={colors.olive}
-    />
-  );
+  return <Counter />;
 }
 
 export default App;
