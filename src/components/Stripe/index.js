@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import classnames from "classnames";
-import color from "color";
+import React, { useContext, useEffect } from "react";
 
-import fastTrackImg from "assets/img/fasttrack.png";
-import getStripeCoordinates from "assets/img/getStripeCoordinates";
+import Context from "./Context";
+import { imageLoadStart, imageLoadSuccess } from "./reducer";
+import { selectStripeBase64Image } from "./selectors";
 import styles from "./styles.module.scss";
 
 function Stripe({
@@ -12,40 +11,34 @@ function Stripe({
   color: stripeColor,
   collection: collectionName
 }) {
-  const canv = useRef(null);
-  const [left, top, width, height] = getStripeCoordinates(
-    collectionName,
-    stripeName
-  );
-  const clr = color(stripeColor);
-  useEffect(() => {
-    const img = new Image();
-    img.src = fastTrackImg;
-    function drawImage() {
-      const ctx = canv.current.getContext("2d");
-      ctx.drawImage(img, left, top, width, height, 0, 0, width, height);
-      const imgData = ctx.getImageData(left, top, width, height);
-      for (let i = 0; i < imgData.data.length; i += 4) {
-        if (imgData.data[i + 3]) {
-          imgData.data[i] = clr.red();
-          imgData.data[i + 1] = clr.green();
-          imgData.data[i + 2] = clr.blue();
-        }
-      }
-      ctx.putImageData(imgData, 0, 0);
-    }
-    img.addEventListener("load", drawImage);
-    return () => img.removeEventListener("load", drawImage);
-  }, [canv, left, top, width, height, clr]);
+  const [state, dispatch] = useContext(Context);
 
-  return (
-    <canvas
-      ref={canv}
-      className={classnames(styles.canvas, className)}
-      width={width}
-      height={height}
-    ></canvas>
-  );
+  // load the collection image and draw it into canvas
+  // so we can extract individual stripes off it
+  const collection = state.images[collectionName];
+  useEffect(() => {
+    if (collection.inProgress || collection.canvasContext) {
+      return;
+    }
+    dispatch(imageLoadStart({ collection: collectionName }));
+    const img = new Image();
+    img.src = collection.src;
+    img.addEventListener("load", () => {
+      const canv = document.createElement("canvas");
+      canv.width = collection.size[0];
+      canv.height = collection.size[1];
+      const canvasContext = canv.getContext("2d");
+      canvasContext.drawImage(img, 0, 0, ...collection.size);
+      dispatch(imageLoadSuccess({ canvasContext, collection: collectionName }));
+    });
+  }, [collection, dispatch, collectionName]);
+
+  const imgSrc = selectStripeBase64Image(
+    collectionName,
+    stripeName,
+    stripeColor
+  )(state);
+  return <img src={imgSrc} alt={stripeName} className={styles.stripe} />;
 }
 
 export default Stripe;

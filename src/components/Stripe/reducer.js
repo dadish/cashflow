@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createNextState } from "@reduxjs/toolkit";
 import uuidv4 from "uuid/v4";
 
 import fastTrackImg from "assets/img/fasttrack.png";
@@ -7,9 +7,8 @@ import uiImg from "assets/img/ui.png";
 import uiData from "assets/img/ui.json";
 import ui2Img from "assets/img/ui2.png";
 import ui2Data from "assets/img/ui2.json";
-import { findIndex } from "ramda";
 
-function createStripe(data) {
+export function createStripe(data) {
   return {
     id: uuidv4(),
     img: "",
@@ -19,94 +18,67 @@ function createStripe(data) {
   };
 }
 
-const { reducer, actions } = createSlice({
-  name: "stripe",
-  initialState: {
-    data: [],
+export const initialState = createNextState(
+  {
     images: {
       "fast-track": {
         name: "fast-track",
         data: fastTrackData,
-        img: fastTrackImg,
+        src: fastTrackImg,
+        size: [2996, 494],
+        canvasContext: null,
         inProgress: false,
         error: null
       },
       ui: {
         name: "ui",
         data: uiData,
-        img: uiImg,
+        src: uiImg,
+        size: [3585, 1009],
+        canvasContext: null,
         inProgress: false,
         error: null
       },
       ui2: {
         name: "ui2",
         data: ui2Data,
-        img: ui2Img,
+        src: ui2Img,
+        size: [1392, 2544],
+        canvasContext: null,
         inProgress: false,
         error: null
       }
     }
   },
+  () => {}
+);
+
+const slice = createSlice({
+  name: "stripe",
+  initialState,
   reducers: {
-    fetchItemStart(state, { payload: { name, collection, color } }) {
-      const itemIndex = findIndex(item => {
-        return (
-          item.name === name &&
-          item.collection === collection &&
-          item.color === color
-        );
-      });
-      if (itemIndex > -1) {
-        const item = state.data[itemIndex];
-        if (item.inProgress || item.img) {
-          return;
-        }
-        item.inProgress = true;
-        item.error = null;
-      } else {
-        state.data.push(
-          createStripe({
-            inProgress: true,
-            name,
-            collection,
-            color
-          })
-        );
+    imageLoadStart(state, action) {
+      const collection = state.images[action.payload.collection];
+      if (!collection) {
+        return;
       }
+      collection.inProgress = true;
+      collection.error = null;
     },
 
-    fetchItemError(state, { payload: { name, collection, color, error } }) {
-      const itemIndex = findIndex(item => {
-        return (
-          item.name === name &&
-          item.collection === collection &&
-          item.color === color
-        );
-      });
-      if (itemIndex > -1) {
-        const item = state.data[itemIndex];
-        item.inProgress = false;
-        item.error = error;
-      } else {
-        state.data.push(
-          createStripe({
-            name,
-            collection,
-            color,
-            error
-          })
-        );
+    imageLoadSuccess(state, action) {
+      const collection = state.images[action.payload.collection];
+      if (!collection) {
+        return;
       }
-    },
-
-    fetchItemSuccess(
-      state,
-      { payload: { name, collection, color, imgData } }
-    ) {}
+      collection.inProgress = false;
+      collection.canvasContext = action.payload.canvasContext;
+    }
   }
 });
 
-export default {
-  reducer,
-  actions
-};
+export const { reducer, actions } = slice;
+
+export const { imageLoadStart, imageLoadSuccess } = actions;
+
+export default reducer;
