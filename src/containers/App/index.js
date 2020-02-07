@@ -1,9 +1,20 @@
 import React from "react";
 
-import Counter from "containers/Counter";
+import Stripe from "components/Stripe";
+import colors from "styles/colors";
+import styles from "./App.module.scss";
 
 function App() {
-  return <Counter />;
+  return (
+    <div>
+      <Stripe
+        collection="fast-track"
+        name="pizza_franchise"
+        color={colors.red}
+        className={styles.stripe}
+      />
+    </div>
+  );
 }
 
 export default App;

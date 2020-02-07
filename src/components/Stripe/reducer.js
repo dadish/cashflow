@@ -7,6 +7,7 @@ import uiImg from "assets/img/ui.png";
 import uiData from "assets/img/ui.json";
 import ui2Img from "assets/img/ui2.png";
 import ui2Data from "assets/img/ui2.json";
+import { path } from "ramda";
 
 export function createStripe(data) {
   return {
@@ -57,6 +58,7 @@ const slice = createSlice({
   name: "stripe",
   initialState,
   reducers: {
+    imageLoadInit() {},
     imageLoadStart(state, action) {
       const collection = state.images[action.payload.collection];
       if (!collection) {
@@ -73,12 +75,26 @@ const slice = createSlice({
       }
       collection.inProgress = false;
       collection.canvasContext = action.payload.canvasContext;
+    },
+
+    imageLoadError(state, action) {
+      const collection = state.images[action.payload.collection];
+      if (!collection) {
+        return;
+      }
+      collection.inProgress = true;
+      collection.error = path(["payload", "error"], action);
     }
   }
 });
 
 export const { reducer, actions } = slice;
 
-export const { imageLoadStart, imageLoadSuccess } = actions;
+export const {
+  imageLoadStart,
+  imageLoadSuccess,
+  imageLoadError,
+  imageLoadInit
+} = actions;
 
 export default reducer;

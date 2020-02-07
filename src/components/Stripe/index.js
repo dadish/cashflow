@@ -1,44 +1,42 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import classnames from "classnames";
 
-import Context from "./Context";
-import { imageLoadStart, imageLoadSuccess } from "./reducer";
-import { selectStripeBase64Image } from "./selectors";
+import { imageLoadInit } from "./reducer";
+import { selectStripeBase64Image, selectCollection } from "./selectors";
 import styles from "./styles.module.scss";
 
 function Stripe({
   className,
   name: stripeName,
-  color: stripeColor,
-  collection: collectionName
+  collection,
+  imgSrc,
+  imageLoadInit
 }) {
-  const [state, dispatch] = useContext(Context);
-
-  // load the collection image and draw it into canvas
-  // so we can extract individual stripes off it
-  const collection = state.images[collectionName];
-  useEffect(() => {
+  // load the collection image if not loaded already
+  React.useEffect(() => {
     if (collection.inProgress || collection.canvasContext) {
       return;
     }
-    dispatch(imageLoadStart({ collection: collectionName }));
-    const img = new Image();
-    img.src = collection.src;
-    img.addEventListener("load", () => {
-      const canv = document.createElement("canvas");
-      canv.width = collection.size[0];
-      canv.height = collection.size[1];
-      const canvasContext = canv.getContext("2d");
-      canvasContext.drawImage(img, 0, 0, ...collection.size);
-      dispatch(imageLoadSuccess({ canvasContext, collection: collectionName }));
-    });
-  }, [collection, dispatch, collectionName]);
+    imageLoadInit({ collection: collection.name });
+  }, [collection, imageLoadInit]);
 
-  const imgSrc = selectStripeBase64Image(
-    collectionName,
-    stripeName,
-    stripeColor
-  )(state);
-  return <img src={imgSrc} alt={stripeName} className={styles.stripe} />;
+  return (
+    <img
+      src={imgSrc}
+      alt={stripeName}
+      className={classnames(styles.stripe, className)}
+    />
+  );
 }
 
-export default Stripe;
+const mapState = (state, { name, color, collection }) => ({
+  collection: selectCollection(collection)(state),
+  imgSrc: selectStripeBase64Image(collection, name, color)(state)
+});
+
+const mapDispatch = {
+  imageLoadInit
+};
+
+export default connect(mapState, mapDispatch)(Stripe);

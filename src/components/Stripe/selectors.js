@@ -1,7 +1,10 @@
 import { createSelector } from "@reduxjs/toolkit";
 import color from "color";
 
-export const selectImages = () => state => state.images;
+export const selectStripe = () => state => state.stripe;
+
+export const selectImages = () =>
+  createSelector(selectStripe(), stripe => stripe.images);
 
 export const selectCollection = collectionName =>
   createSelector(selectImages(), images => images[collectionName]);
