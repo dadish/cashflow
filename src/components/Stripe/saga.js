@@ -23,9 +23,10 @@ export const loadImage = ({ src, width, height }) =>
   });
 
 export function* imageLoadInitSaga({ payload: { collection } }) {
-  const { src, size, inProgress, canvasContext } = yield select(
-    selectCollection(collection)
+  const { src, size, inProgress, canvasContext } = yield select(s =>
+    selectCollection(s, { collection })
   );
+
   if (inProgress || canvasContext) {
     return;
   }

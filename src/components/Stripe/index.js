@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 import { imageLoadInit } from "./reducer";
 import { selectStripeBase64Image, selectCollection } from "./selectors";
 import styles from "./styles.module.scss";
+import { collectionPropType } from "./propTypes";
 
-function Stripe({
+export function Stripe({
   className,
   name: stripeName,
   collection,
@@ -30,13 +32,21 @@ function Stripe({
   );
 }
 
-const mapState = (state, { name, color, collection }) => ({
-  collection: selectCollection(collection)(state),
-  imgSrc: selectStripeBase64Image(collection, name, color)(state)
+export const mapState = (state, ownProps) => ({
+  collection: selectCollection(state, ownProps),
+  imgSrc: selectStripeBase64Image(state, ownProps)
 });
 
 const mapDispatch = {
   imageLoadInit
+};
+
+Stripe.propTypes = {
+  className: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  collection: collectionPropType,
+  imgSrc: PropTypes.string,
+  imageLoadInit: PropTypes.func.isRequired
 };
 
 export default connect(mapState, mapDispatch)(Stripe);

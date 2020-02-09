@@ -6,14 +6,12 @@ import styles from "./App.module.scss";
 
 function App() {
   return (
-    <div>
-      <Stripe
-        collection="fast-track"
-        name="pizza_franchise"
-        color={colors.red}
-        className={styles.stripe}
-      />
-    </div>
+    <Stripe
+      collection="fast-track"
+      name="south_sea_island_fantasy"
+      color={colors.red}
+      className={styles.stripe}
+    />
   );
 }
 
