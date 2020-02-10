@@ -14,6 +14,7 @@ window.CanvasRenderingContext2D.prototype.getImageData = jest.fn(() => ({
   data: []
 }));
 window.CanvasRenderingContext2D.prototype.putImageData = jest.fn();
+window.CanvasRenderingContext2D.prototype.drawImage = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn(
   () => new CanvasRenderingContext2D()
 );

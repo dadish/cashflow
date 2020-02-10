@@ -39,7 +39,7 @@ export function* imageLoadInitSaga({ payload: { collection } }) {
     });
     yield put(imageLoadSuccess({ canvasContext, collection }));
   } catch (error) {
-    yield put(imageLoadError({ error }));
+    yield put(imageLoadError({ error, collection }));
   }
 }
 
