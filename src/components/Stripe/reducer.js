@@ -9,16 +9,6 @@ import ui2Img from "assets/img/ui2.png";
 import ui2Data from "assets/img/ui2.json";
 import { path } from "ramda";
 
-export function createStripe(data) {
-  return {
-    id: uuidv4(),
-    img: "",
-    inProgress: false,
-    error: null,
-    ...data
-  };
-}
-
 export const initialState = createNextState(
   {
     images: {
@@ -58,7 +48,17 @@ const slice = createSlice({
   name: "stripe",
   initialState,
   reducers: {
+    /**
+     * Does nothing to the state. Triggers imageLoadInitSaga saga.
+     * @payload {string} collection The name of the collection.
+     */
     imageLoadInit() {},
+
+    /**
+     * Indicates that the image loading started and is inProgress.
+     * Dispatched by imageLoadInitSaga saga.
+     * @payload {string} collection The name of the collection.
+     */
     imageLoadStart(state, action) {
       const collection = state.images[action.payload.collection];
       if (!collection) {
@@ -68,6 +68,13 @@ const slice = createSlice({
       collection.error = null;
     },
 
+    /**
+     * Indicates that the image has successflully loaded and processed.
+     * Dispatched by imageLoadInitSaga saga.
+     * @payload {string} collection The name of the collection
+     * @payload {CanvasRenderingContext2D} canvasContext The canvas 2d
+     * context representation of the collection image
+     */
     imageLoadSuccess(state, action) {
       const collection = state.images[action.payload.collection];
       if (!collection) {
@@ -77,12 +84,18 @@ const slice = createSlice({
       collection.canvasContext = action.payload.canvasContext;
     },
 
+    /**
+     * Indicates that something went wrong while loading the image.
+     * dispatched by imageLoadInitSaga saga.
+     * @payload {string} collection The name of the collection.
+     * @payload {Error} error The error that occured during the loading.
+     */
     imageLoadError(state, action) {
       const collection = state.images[action.payload.collection];
       if (!collection) {
         return;
       }
-      collection.inProgress = true;
+      collection.inProgress = false;
       collection.error = path(["payload", "error"], action);
     }
   }
