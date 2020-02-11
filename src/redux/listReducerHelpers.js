@@ -34,7 +34,7 @@ export function fetchListError(state, action) {
 
 export function fetchListSuccess(state, action) {
   state.inProgress = false;
-  state.data = action.payload.data || state.data;
+  state.data = action.payload.data.map(createItem) || state.data;
 }
 
 export function fetchItemStart(state, action) {
@@ -92,3 +92,14 @@ export function fetchItemSuccess(state, action) {
     );
   }
 }
+
+export const reducers = {
+  fetchListStart,
+  fetchListFail,
+  fetchListError,
+  fetchListSuccess,
+  fetchItemStart,
+  fetchItemFail,
+  fetchItemError,
+  fetchItemSuccess
+};
