@@ -1,5 +1,4 @@
 import { createSlice, createNextState } from "@reduxjs/toolkit";
-import uuidv4 from "uuid/v4";
 
 import fastTrackImg from "assets/img/fasttrack.png";
 import fastTrackData from "assets/img/fasttrack.json";
