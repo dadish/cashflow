@@ -1,5 +1,7 @@
+import localStorage from "./localStorage";
+
 const store = {};
-let storage = window.localStorage;
+let storage = localStorage;
 
 try {
   storage.setItem("initialize", "storage");
