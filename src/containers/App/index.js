@@ -1,6 +1,6 @@
 import React from "react";
 
-import Rooms from "containers/Rooms";
+import Rooms from "src/containers/Rooms";
 
 function App() {
   return <Rooms />;

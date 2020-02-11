@@ -1,11 +1,11 @@
 import { createSlice, createNextState } from "@reduxjs/toolkit";
 
-import fastTrackImg from "assets/img/fasttrack.png";
-import fastTrackData from "assets/img/fasttrack.json";
-import uiImg from "assets/img/ui.png";
-import uiData from "assets/img/ui.json";
-import ui2Img from "assets/img/ui2.png";
-import ui2Data from "assets/img/ui2.json";
+import fastTrackImg from "src/assets/img/fasttrack.png";
+import fastTrackData from "src/assets/img/fasttrack.json";
+import uiImg from "src/assets/img/ui.png";
+import uiData from "src/assets/img/ui.json";
+import ui2Img from "src/assets/img/ui2.png";
+import ui2Data from "src/assets/img/ui2.json";
 import { path } from "ramda";
 
 export const initialState = createNextState(

@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import App from "containers/App";
-import createStore from "redux/createStore";
+import App from "src/containers/App";
+import createStore from "src/redux/createStore";
 import "./index.scss";
 
 const store = createStore();

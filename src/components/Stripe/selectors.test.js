@@ -1,7 +1,7 @@
 import { createNextState } from "@reduxjs/toolkit";
-import fastTrackImg from "assets/img/fasttrack.png";
-import fastTrackData from "assets/img/fasttrack.json";
-import colors from "styles/colors";
+import fastTrackImg from "src/assets/img/fasttrack.png";
+import fastTrackData from "src/assets/img/fasttrack.json";
+import colors from "src/styles/colors";
 import { selectStripeImgData, selectStripeBase64Image } from "./selectors";
 
 const collectionName = "fast-track";

@@ -2,8 +2,8 @@ import { expectSaga } from "redux-saga-test-plan";
 import * as matchers from "redux-saga-test-plan/matchers";
 import { createNextState } from "@reduxjs/toolkit";
 
-import fastTrackData from "assets/img/fasttrack.json";
-import fastTrackImg from "assets/img/fasttrack.png";
+import fastTrackData from "src/assets/img/fasttrack.json";
+import fastTrackImg from "src/assets/img/fasttrack.png";
 import { loadImage, imageLoadInitSaga } from "./saga";
 import { imageLoadStart, imageLoadSuccess, imageLoadError } from "./reducer";
 

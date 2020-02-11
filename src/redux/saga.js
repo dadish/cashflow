@@ -1,4 +1,4 @@
-import stripe from "components/Stripe/saga";
+import stripe from "src/components/Stripe/saga";
 
 const allEffects = [...stripe];
 

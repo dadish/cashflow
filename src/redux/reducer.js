@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import stripe from "components/Stripe/reducer";
+import stripe from "src/components/Stripe/reducer";
 
 export default combineReducers({
   stripe
