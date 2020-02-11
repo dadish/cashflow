@@ -1,5 +1,6 @@
 import uuidv4 from "uuid/v4";
 import findIndex from "ramda/src/findIndex";
+import path from "ramda/src/path";
 
 export const initialState = {
   data: [],
@@ -23,17 +24,17 @@ export function fetchListStart(state, action) {
 
 export function fetchListFail(state, action) {
   state.inProgress = false;
-  state.erorr = action.payload.error;
+  state.error = action.payload.error;
 }
 
 export function fetchListError(state, action) {
   state.inProgress = false;
-  state.erorr = action.payload.error;
+  state.error = action.payload.error;
 }
 
 export function fetchListSuccess(state, action) {
   state.inProgress = false;
-  state.data = action.payload.data;
+  state.data = action.payload.data || state.data;
 }
 
 export function fetchItemStart(state, action) {
@@ -42,8 +43,8 @@ export function fetchItemStart(state, action) {
   if (itemIndex > -1) {
     state.data[itemIndex].inProgress = true;
     state.data[itemIndex].error = null;
-  } else {
-    state.data.push(createItem({ inProgress: true }));
+  } else if (itemId) {
+    state.data.push(createItem({ inProgress: true, id: itemId }));
   }
 }
 
@@ -83,6 +84,11 @@ export function fetchItemSuccess(state, action) {
       inProgress: false
     };
   } else {
-    state.data.push(createItem(action.payload.data));
+    state.data.push(
+      createItem({
+        ...action.payload.data,
+        inProgress: false
+      })
+    );
   }
 }
