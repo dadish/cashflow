@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "color": "^3.1.2",
+    "firebase": "^7.8.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "re-reselect": "^3.4.0",
