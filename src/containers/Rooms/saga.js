@@ -1,6 +1,5 @@
 import { eventChannel } from "redux-saga";
 import {
-  takeLatest,
   call,
   put,
   takeEvery,
@@ -12,9 +11,6 @@ import {
 
 import { rooms } from "src/services/Firebase";
 import {
-  fetchListStart,
-  fetchListSuccess,
-  fetchListError,
   subscribeToList,
   fetchItemSuccess,
   unsubscribeFromList,
