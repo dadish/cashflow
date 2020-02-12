@@ -30,6 +30,8 @@ const { reducer, actions } = slice;
 export default reducer;
 
 export const {
+  subscribeToList,
+  unsubscribeFromList,
   fetchListStart,
   fetchListFail,
   fetchListError,
@@ -38,8 +40,9 @@ export const {
   fetchItemFail,
   fetchItemError,
   fetchItemSuccess,
-  subscribeToList,
-  unsubscribeFromList,
-  removeFirstItemSuccess,
-  removeLastItemSuccess
+  updateItemSuccess,
+  removeFirstItem,
+  removeLastItem,
+  removeItemStart,
+  removeItemSuccess
 } = actions;

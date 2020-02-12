@@ -18,8 +18,10 @@ import {
   subscribeToList,
   fetchItemSuccess,
   unsubscribeFromList,
-  removeLastItemSuccess,
-  MAX_ITEMS_NUMBER
+  removeLastItem,
+  MAX_ITEMS_NUMBER,
+  removeItemSuccess,
+  removeItemStart
 } from "./reducer";
 
 export const getLatestRooms = limit =>
@@ -39,9 +41,9 @@ export const getLatestRooms = limit =>
     limitedRooms.on("value", handleValue);
   });
 
-export function* fetchListStartSaga() {
+export function* fetchListStartSaga(action) {
   try {
-    const data = yield call(getLatestRooms, 10);
+    const data = yield call(getLatestRooms, action.payload.limit || 10);
     yield put(fetchListSuccess({ data }));
     yield put(subscribeToList());
   } catch (error) {
@@ -52,6 +54,10 @@ export function* fetchListStartSaga() {
 export function createRoomsChannel(limit) {
   return eventChannel(emit => {
     function handleChildAdded(data) {
+      const values = data.val();
+      if (!values.name) {
+        return;
+      }
       emit({
         id: data.key,
         ...data.val()
@@ -80,7 +86,7 @@ export function* subscribeLoopSaga(limit) {
       yield put(fetchItemSuccess({ id: data.id, data }));
       const numRooms = yield select(s => s.rooms.data.length);
       if (numRooms > MAX_ITEMS_NUMBER) {
-        yield put(removeLastItemSuccess());
+        yield put(removeLastItem());
       }
     }
   } finally {
@@ -88,7 +94,14 @@ export function* subscribeLoopSaga(limit) {
   }
 }
 
+function* removeLastItemSaga() {
+  const room = yield select(s => s.rooms.data[s.rooms.data.length - 1]);
+  yield put(removeItemStart({ id: room.id }));
+  yield put(removeItemSuccess({ id: room.id }));
+}
+
 export default [
   takeLatest(fetchListStart, fetchListStartSaga),
-  takeEvery(subscribeToList, subscribeToListSaga)
+  takeEvery(subscribeToList, subscribeToListSaga),
+  takeEvery(removeLastItem, removeLastItemSaga)
 ];

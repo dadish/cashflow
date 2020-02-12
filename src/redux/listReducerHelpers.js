@@ -93,18 +93,28 @@ export function fetchItemSuccess(state, action) {
   }
 }
 
-export function removeFirstItemSuccess(state) {
-  if (state.data.length < 1) {
+export function removeFirstItem() {}
+
+export function removeLastItem() {}
+
+export function removeItemStart() {}
+
+export function removeItemSuccess(state, action) {
+  const itemId = action.payload.id;
+  const itemIndex = findIndex(({ id }) => id === itemId, state.data);
+  if (itemIndex < 0) {
     return;
   }
-  state.data.shift();
+  state.data.splice(itemIndex, 1);
 }
 
-export function removeLastItemSuccess(state) {
-  if (state.data.length < 1) {
+export function updateItemSuccess(state, action) {
+  const itemId = action.payload.id;
+  const itemIndex = findIndex(({ id }) => id === itemId, state.data);
+  if (itemIndex < 0) {
     return;
   }
-  state.data.pop();
+  Object.assign(state.data[itemIndex], action.payload.data || {});
 }
 
 export const reducers = {
@@ -116,6 +126,9 @@ export const reducers = {
   fetchItemFail,
   fetchItemError,
   fetchItemSuccess,
-  removeFirstItemSuccess,
-  removeLastItemSuccess
+  updateItemSuccess,
+  removeFirstItem,
+  removeLastItem,
+  removeItemStart,
+  removeItemSuccess
 };
