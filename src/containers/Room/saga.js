@@ -15,7 +15,8 @@ function* gameStartWatcher({ payload: { id } }) {
     normalizeData: data => data,
     actionSuccess: ([key, value]) => (value ? gameStarted({ id }) : ignore()),
     actionError: gameStartedError,
-    terminationPattern: gameStarted
+    terminationPattern: ({ type, payload }) =>
+      type === gameStarted.toString() && payload.id === id
   });
 }
 
