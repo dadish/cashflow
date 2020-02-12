@@ -3,14 +3,14 @@ import { call, take, put, cancelled, fork, cancel } from "redux-saga/effects";
 
 import { db } from "src/services/Firebase";
 
-export const createFirebaseRefChannel = (path, configure) =>
+export const createFirebaseRefChannel = (path, event = "value", configure) =>
   eventChannel(emit => {
-    function handleValue(data) {
-      emit([data.key, data.val()]);
+    function handleSnapshot(snap) {
+      emit([snap.key, snap.val()]);
     }
     const ref = configure(db.ref(path));
-    ref.on("value", handleValue);
-    return () => ref.off("value", handleValue);
+    ref.on(event, handleSnapshot);
+    return () => ref.off(event, handleSnapshot);
   });
 
 export function* createUpdaterSaga(settings) {
@@ -20,7 +20,8 @@ export function* createUpdaterSaga(settings) {
     normalizeData,
     actionSuccess,
     actionError,
-    terminationPattern
+    terminationPattern,
+    event
   } = {
     configureRef: r => r,
     normalizeData: d => d,
@@ -29,7 +30,12 @@ export function* createUpdaterSaga(settings) {
   function* updaterLoop() {
     let changesChannel;
     try {
-      changesChannel = yield call(createFirebaseRefChannel, path, configureRef);
+      changesChannel = yield call(
+        createFirebaseRefChannel,
+        path,
+        event,
+        configureRef
+      );
       while (true) {
         const data = yield take(changesChannel);
         yield put(actionSuccess(normalizeData(data)));
