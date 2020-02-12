@@ -6,7 +6,10 @@ import {
   fetchItemSuccess,
   gameStarted,
   gameStartedError,
-  ignore
+  ignore,
+  numPlayersUpdated,
+  numPlayersUpdatedError,
+  removeItemSuccess
 } from "src/containers/Rooms/reducer";
 
 function* gameStartWatcher({ payload: { id } }) {
@@ -19,4 +22,29 @@ function* gameStartWatcher({ payload: { id } }) {
   });
 }
 
-export default [takeEvery(fetchItemSuccess, gameStartWatcher)];
+function* playersCountWatcher({ payload: { id } }) {
+  yield call(createUpdaterSaga, {
+    dbRef: db.ref(`/rooms/${id}/players`),
+    normalizeData: ([key, players]) => {
+      if (!players || !players.length) {
+        return {};
+      }
+      return { id, value: players.filter(({ userId }) => userId).length };
+    },
+    actionSuccess: numPlayersUpdated,
+    actionError: ({ error }) => {
+      return numPlayersUpdatedError({ error });
+    },
+    terminationPattern: ({ type, payload }) => {
+      if (payload.id !== id) {
+        return false;
+      }
+      return [removeItemSuccess.type, gameStarted.type].includes(type);
+    }
+  });
+}
+
+export default [
+  takeEvery(fetchItemSuccess, gameStartWatcher),
+  takeEvery(fetchItemSuccess, playersCountWatcher)
+];

@@ -33,6 +33,8 @@ function* roomAddWatcher({ payload: { limit } }) {
         id,
         data: {
           id,
+          players,
+          numPlayers: players.filter(({ userId }) => userId).length,
           ...rest
         }
       };

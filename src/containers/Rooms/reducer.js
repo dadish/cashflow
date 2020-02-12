@@ -14,7 +14,7 @@ export const initialState = createNextState(
   () => {}
 );
 
-export const MAX_ITEMS_NUMBER = 30;
+export const MAX_ITEMS_NUMBER = 15;
 
 const slice = createSlice({
   name: "rooms",
@@ -34,7 +34,15 @@ const slice = createSlice({
       state.data[itemIndex].gameState.gameStarted = true;
     },
     gameStartedError() {},
-    ignore() {}
+    ignore() {},
+    numPlayersUpdated(state, { payload: { id, value } }) {
+      const itemIndex = findIndex(room => room.id === id, state.data);
+      if (itemIndex < 0) {
+        return;
+      }
+      state.data[itemIndex].numPlayers = value;
+    },
+    numPlayersUpdatedError() {}
   }
 });
 
@@ -49,6 +57,8 @@ export const {
   gameStarted,
   gameStartedError,
   ignore,
+  numPlayersUpdated,
+  numPlayersUpdatedError,
   fetchListStart,
   fetchListFail,
   fetchListError,

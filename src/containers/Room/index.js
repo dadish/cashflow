@@ -17,6 +17,9 @@ function Room({ id }) {
   }
   return (
     <li className={styles.li}>
+      <span>
+        [{room.numPlayers}/{room.maxPlayers}]
+      </span>
       <span>{room.name}</span>
       {room.gameState.gameStarted && <span>[STARTED]</span>}
     </li>
