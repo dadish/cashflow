@@ -44,7 +44,7 @@ export function fetchItemStart(state, action) {
     state.data[itemIndex].inProgress = true;
     state.data[itemIndex].error = null;
   } else if (itemId) {
-    state.data.push(createItem({ inProgress: true, id: itemId }));
+    state.data.unshift(createItem({ inProgress: true, id: itemId }));
   }
 }
 
@@ -55,7 +55,7 @@ export function fetchItemFail(state, action) {
     state.data[itemIndex].inProgress = false;
     state.data[itemIndex].error = action.payload.error;
   } else {
-    state.data.push(
+    state.data.unshift(
       createItem({ error: action.payload.error, id: itemId || uuidv4() })
     );
   }
@@ -68,7 +68,7 @@ export function fetchItemError(state, action) {
     state.data[itemIndex].inProgress = false;
     state.data[itemIndex].error = action.payload.error;
   } else {
-    state.data.push(
+    state.data.unshift(
       createItem({ error: action.payload.error, id: itemId || uuidv4() })
     );
   }
@@ -84,13 +84,27 @@ export function fetchItemSuccess(state, action) {
       inProgress: false
     };
   } else {
-    state.data.push(
+    state.data.unshift(
       createItem({
         ...action.payload.data,
         inProgress: false
       })
     );
   }
+}
+
+export function removeFirstItemSuccess(state) {
+  if (state.data.length < 1) {
+    return;
+  }
+  state.data.shift();
+}
+
+export function removeLastItemSuccess(state) {
+  if (state.data.length < 1) {
+    return;
+  }
+  state.data.pop();
 }
 
 export const reducers = {
@@ -101,5 +115,7 @@ export const reducers = {
   fetchItemStart,
   fetchItemFail,
   fetchItemError,
-  fetchItemSuccess
+  fetchItemSuccess,
+  removeFirstItemSuccess,
+  removeLastItemSuccess
 };

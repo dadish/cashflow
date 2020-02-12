@@ -13,6 +13,8 @@ export const initialState = createNextState(
   () => {}
 );
 
+export const MAX_ITEMS_NUMBER = 13;
+
 const slice = createSlice({
   name: "rooms",
   initialState,
@@ -37,5 +39,7 @@ export const {
   fetchItemError,
   fetchItemSuccess,
   subscribeToList,
-  unsubscribeFromList
+  unsubscribeFromList,
+  removeFirstItemSuccess,
+  removeLastItemSuccess
 } = actions;
