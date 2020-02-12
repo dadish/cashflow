@@ -58,10 +58,21 @@ export function createRoomsChannel(limit) {
       if (!values.name) {
         return;
       }
-      emit({
-        id: data.key,
-        ...data.val()
-      });
+      const {
+        chatlog,
+        decks,
+        fastTrackSpaces,
+        players,
+        playerOrder,
+        ...rest
+      } = values;
+      emit([
+        data.key,
+        {
+          numPlayers: players.length,
+          ...rest
+        }
+      ]);
     }
     const limitedRooms = rooms.limitToLast(limit).orderByChild("timeCreated");
     limitedRooms.on("child_added", handleChildAdded);
@@ -82,8 +93,9 @@ export function* subscribeLoopSaga(limit) {
   const roomsChannel = yield call(createRoomsChannel, limit);
   try {
     while (true) {
-      const data = yield take(roomsChannel);
-      yield put(fetchItemSuccess({ id: data.id, data }));
+      const [id, value] = yield take(roomsChannel);
+      yield call(console.log, value);
+      yield put(fetchItemSuccess({ id, data: { id, ...value } }));
       const numRooms = yield select(s => s.rooms.data.length);
       if (numRooms > MAX_ITEMS_NUMBER) {
         yield put(removeLastItem());
