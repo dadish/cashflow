@@ -63,7 +63,7 @@ export function createRoomsChannel(limit) {
         ...data.val()
       });
     }
-    const limitedRooms = rooms.limitToLast(limit);
+    const limitedRooms = rooms.limitToLast(limit).orderByChild("timeCreated");
     limitedRooms.on("child_added", handleChildAdded);
     return () => {
       limitedRooms.off("child_added", handleChildAdded);

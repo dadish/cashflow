@@ -1,6 +1,7 @@
 import { createSlice, createNextState } from "@reduxjs/toolkit";
 
 import * as listHelpers from "src/redux/listReducerHelpers";
+import findIndex from "ramda/src/findIndex";
 
 export const createItem = listHelpers.createItem;
 
@@ -21,7 +22,16 @@ const slice = createSlice({
   reducers: {
     ...listHelpers.reducers,
     subscribeToList() {},
-    unsubscribeFromList() {}
+    unsubscribeFromList() {},
+    gameStarted(state, { payload: { id } }) {
+      const itemIndex = findIndex(room => room.id === id, state.data);
+      if (itemIndex < 0) {
+        return;
+      }
+      state.data[itemIndex].gameState.gameStarted = true;
+    },
+    gameStartedError() {},
+    ignore() {}
   }
 });
 
@@ -32,6 +42,9 @@ export default reducer;
 export const {
   subscribeToList,
   unsubscribeFromList,
+  gameStarted,
+  gameStartedError,
+  ignore,
   fetchListStart,
   fetchListFail,
   fetchListError,

@@ -13,7 +13,12 @@ function Room({ id }) {
   if (!id) {
     return null;
   }
-  return <li>{room.name}</li>;
+  return (
+    <li>
+      <span>{room.name}</span>
+      {room.gameState.gameStarted && <span>[STARTED]</span>}
+    </li>
+  );
 }
 
 export default Room;
