@@ -14,7 +14,7 @@ export const initialState = createNextState(
   () => {}
 );
 
-export const MAX_ITEMS_NUMBER = 13;
+export const MAX_ITEMS_NUMBER = 30;
 
 const slice = createSlice({
   name: "rooms",
@@ -22,6 +22,9 @@ const slice = createSlice({
   reducers: {
     ...listHelpers.reducers,
     subscribeToList() {},
+    subscribeToListError(state, { payload: { error } }) {
+      state.error = error;
+    },
     unsubscribeFromList() {},
     gameStarted(state, { payload: { id } }) {
       const itemIndex = findIndex(room => room.id === id, state.data);
@@ -41,6 +44,7 @@ export default reducer;
 
 export const {
   subscribeToList,
+  subscribeToListError,
   unsubscribeFromList,
   gameStarted,
   gameStartedError,
@@ -57,5 +61,7 @@ export const {
   removeFirstItem,
   removeLastItem,
   removeItemStart,
+  removeItemFail,
+  removeItemError,
   removeItemSuccess
 } = actions;

@@ -100,6 +100,10 @@ export function removeLastItem() {}
 
 export function removeItemStart() {}
 
+export function removeItemFail() {}
+
+export function removeItemError() {}
+
 export function removeItemSuccess(state, action) {
   const itemId = action.payload.id;
   const itemIndex = findIndex(({ id }) => id === itemId, state.data);
@@ -131,5 +135,7 @@ export const reducers = {
   removeFirstItem,
   removeLastItem,
   removeItemStart,
+  removeItemFail,
+  removeItemError,
   removeItemSuccess
 };
