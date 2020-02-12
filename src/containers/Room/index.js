@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 
+import styles from "./styles.module.scss";
+
 const selectRoom = id =>
   createSelector(
     state => state.rooms.data,
@@ -14,7 +16,7 @@ function Room({ id }) {
     return null;
   }
   return (
-    <li>
+    <li className={styles.li}>
       <span>{room.name}</span>
       {room.gameState.gameStarted && <span>[STARTED]</span>}
     </li>
