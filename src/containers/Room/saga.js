@@ -1,4 +1,4 @@
-import { takeEvery, fork } from "redux-saga/effects";
+import { takeEvery, call } from "redux-saga/effects";
 
 import { createUpdaterSaga } from "src/redux/sagaHelpers";
 import {
@@ -9,7 +9,7 @@ import {
 } from "src/containers/Rooms/reducer";
 
 function* gameStartWatcher({ payload: { id } }) {
-  yield fork(createUpdaterSaga, {
+  yield call(createUpdaterSaga, {
     path: `/rooms/${id}/gameState/gameStarted`,
     normalizeRef: r => r,
     normalizeData: data => data,
