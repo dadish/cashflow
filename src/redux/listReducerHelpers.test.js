@@ -67,7 +67,7 @@ test("fetchListSuccess sets inProgress to false and refreshes the data", () => {
     payload: { data }
   });
   expect(nextState.inProgress).toBe(false);
-  expect(nextState.data).toBe(data);
+  expect(nextState.data).toEqual(data);
 });
 
 test("fetchListSuccess does not touch original data if no data is in payload", () => {
@@ -102,8 +102,8 @@ test("fetchItemStart creates a new item if no item in data matches", () => {
     payload: { id: "does-not-exist" }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1].inProgress).toBe(true);
-  expect(nextState.data[1].error).toBe(null);
+  expect(nextState.data[0].inProgress).toBe(true);
+  expect(nextState.data[0].error).toBe(null);
 });
 
 test("fetchItemStart does nothing to the state if there is no id in the payload", () => {
@@ -147,8 +147,8 @@ test("fetchItemFail adds new item into data if the payload id does not match any
     }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1].id).toBe(item2.id);
-  expect(nextState.data[1].error).toBe(error);
+  expect(nextState.data[0].id).toBe(item2.id);
+  expect(nextState.data[0].error).toBe(error);
 });
 
 test("fetchItemFail adds new item with arbitrary id if no id is in payload", () => {
@@ -163,9 +163,9 @@ test("fetchItemFail adds new item with arbitrary id if no id is in payload", () 
     }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1]).toHaveProperty("id");
-  expect(nextState.data[1].id).toBeTruthy();
-  expect(nextState.data[1].error).toBe(error);
+  expect(nextState.data[0]).toHaveProperty("id");
+  expect(nextState.data[0].id).toBeTruthy();
+  expect(nextState.data[0].error).toBe(error);
 });
 
 test("fetchItemError sets item inProgress to false and sets the error if any", () => {
@@ -198,8 +198,8 @@ test("fetchItemError adds new item into data if the payload id does not match an
     }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1].id).toBe(item2.id);
-  expect(nextState.data[1].error).toBe(error);
+  expect(nextState.data[0].id).toBe(item2.id);
+  expect(nextState.data[0].error).toBe(error);
 });
 
 test("fetchItemError adds new item with arbitrary id if no id is in payload", () => {
@@ -214,9 +214,9 @@ test("fetchItemError adds new item with arbitrary id if no id is in payload", ()
     }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1]).toHaveProperty("id");
-  expect(nextState.data[1].id).toBeTruthy();
-  expect(nextState.data[1].error).toBe(error);
+  expect(nextState.data[0]).toHaveProperty("id");
+  expect(nextState.data[0].id).toBeTruthy();
+  expect(nextState.data[0].error).toBe(error);
 });
 
 test("fetchItemSuccess sets item inProgress to false and updates the item with data from payload", () => {
@@ -254,6 +254,6 @@ test("itemFetchSuccess adds new item to the data if id from the payload does not
     }
   });
   expect(nextState.data.length).toBe(2);
-  expect(nextState.data[1].id).toBe(item2.id);
-  expect(nextState.data[1].inProgress).toBe(false);
+  expect(nextState.data[0].id).toBe(item2.id);
+  expect(nextState.data[0].inProgress).toBe(false);
 });

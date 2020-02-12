@@ -1,6 +1,5 @@
 import uuidv4 from "uuid/v4";
 import findIndex from "ramda/src/findIndex";
-import path from "ramda/src/path";
 
 export const initialState = {
   data: [],
@@ -32,9 +31,11 @@ export function fetchListError(state, action) {
   state.error = action.payload.error;
 }
 
-export function fetchListSuccess(state, action) {
+export function fetchListSuccess(state, { payload: { data } }) {
   state.inProgress = false;
-  state.data = action.payload.data.map(createItem) || state.data;
+  if (data && data.length) {
+    state.data = data.map(createItem);
+  }
 }
 
 export function fetchItemStart(state, action) {
