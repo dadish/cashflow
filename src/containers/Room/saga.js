@@ -1,5 +1,6 @@
 import { takeEvery, call } from "redux-saga/effects";
 
+import { db } from "src/services/Firebase";
 import { createUpdaterSaga } from "src/redux/sagaHelpers";
 import {
   fetchItemSuccess,
@@ -10,9 +11,7 @@ import {
 
 function* gameStartWatcher({ payload: { id } }) {
   yield call(createUpdaterSaga, {
-    path: `/rooms/${id}/gameState/gameStarted`,
-    normalizeRef: r => r,
-    normalizeData: data => data,
+    dbRef: db.ref(`/rooms/${id}/gameState/gameStarted`),
     actionSuccess: ([key, value]) => (value ? gameStarted({ id }) : ignore()),
     actionError: gameStartedError,
     terminationPattern: ({ type, payload }) =>
