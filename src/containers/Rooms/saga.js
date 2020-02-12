@@ -41,16 +41,6 @@ export const getLatestRooms = limit =>
     limitedRooms.on("value", handleValue);
   });
 
-export function* fetchListStartSaga(action) {
-  try {
-    const data = yield call(getLatestRooms, action.payload.limit || 10);
-    yield put(fetchListSuccess({ data }));
-    yield put(subscribeToList());
-  } catch (error) {
-    yield put(fetchListError({ error }));
-  }
-}
-
 export function createRoomsChannel(limit) {
   return eventChannel(emit => {
     function handleChildAdded(data) {
@@ -113,7 +103,6 @@ function* removeLastItemSaga() {
 }
 
 export default [
-  takeLatest(fetchListStart, fetchListStartSaga),
   takeEvery(subscribeToList, subscribeToListSaga),
   takeEvery(removeLastItem, removeLastItemSaga)
 ];
