@@ -1,6 +1,9 @@
+@import "src/styles/colors";
+
 .ul {
   border: 1px solid #ddd;
   border-top: none;
-  margin: 1rem;
+  margin: 1rem auto;
   padding: 0;
+  max-width: 20rem;
 }

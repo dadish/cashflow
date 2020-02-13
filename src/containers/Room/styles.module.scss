@@ -1,5 +1,47 @@
+@import "src/styles/colors";
+
 .li {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
   list-style: none;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid #ddd;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+}
+
+.liHover {
+  background-color: $silver + #111;
+}
+
+.liDown {
+  background-color: $yellow;
+}
+
+.playersCount {
+  font-size: 1rem;
+  flex: 1;
+  display: inline-block;
+}
+
+.playersCountTxt {
+  float: right;
+}
+
+.name {
+  font-size: 1.5rem;
+  padding-left: 0.75rem;
+  flex: 5;
+}
+
+.password {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.started {
+  flex: 2;
+  float: right;
+  font-size: 1rem;
 }
