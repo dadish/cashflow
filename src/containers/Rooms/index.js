@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 const selectRooms = s => s.rooms.data.map(({ id }) => id);
 
-function Rooms() {
+function Rooms({ children }) {
   const ids = useSelector(selectRooms);
 
   // dispatch fetchListStart when component mounts
@@ -112,6 +112,7 @@ function Rooms() {
           />
         ))}
       </ul>
+      {children}
     </nav>
   );
 }

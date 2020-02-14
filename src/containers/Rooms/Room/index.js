@@ -1,17 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { createSelector } from "@reduxjs/toolkit";
 import classnames from "classnames";
 import { useImmer } from "use-immer";
 import { Link } from "@reach/router";
 
+import { selectRoom } from "src/containers/Rooms/selectors";
 import styles from "./styles.module.scss";
-
-const selectRoom = id =>
-  createSelector(
-    state => state.rooms.data,
-    rooms => rooms.find(room => room.id === id)
-  );
 
 function Room({ id, inFocus }) {
   const liElement = useRef(null);
