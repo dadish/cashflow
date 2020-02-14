@@ -5,12 +5,13 @@ import Mousetrap from "mousetrap";
 import findIndex from "ramda/src/findIndex";
 
 import { subscribeToList } from "./reducer";
-import Room from "src/containers/Room";
+import Room from "./Room";
 import styles from "./styles.module.scss";
 
 const selectRooms = s => s.rooms.data.map(({ id }) => id);
 
 function Rooms() {
+  console.log("Rooms");
   const ids = useSelector(selectRooms);
 
   // dispatch fetchListStart when component mounts

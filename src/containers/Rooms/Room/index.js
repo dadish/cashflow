@@ -56,7 +56,7 @@ function Room({ id, inFocus }) {
       <Link
         ref={liElement}
         className={styles.link}
-        to={`/select-room/${id}`}
+        to={`/rooms/${id}`}
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
         onPointerDown={handlePointerDown}
