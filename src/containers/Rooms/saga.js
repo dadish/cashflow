@@ -2,6 +2,7 @@ import { call, put, takeEvery, select } from "redux-saga/effects";
 
 import { db } from "src/services/Firebase";
 import { createUpdaterSaga } from "src/redux/sagaHelpers";
+import roomSagas from "./Room/saga";
 import {
   subscribeToList,
   subscribeToListError,
@@ -62,5 +63,6 @@ function* removeItemStartSaga({ payload: { id } }) {
 export default [
   takeEvery(subscribeToList, roomAddWatcher),
   takeEvery(fetchItemSuccess, roomsRotatorSaga),
-  takeEvery(removeItemStart, removeItemStartSaga)
+  takeEvery(removeItemStart, removeItemStartSaga),
+  ...roomSagas
 ];
