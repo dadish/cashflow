@@ -11,7 +11,6 @@ import styles from "./styles.module.scss";
 const selectRooms = s => s.rooms.data.map(({ id }) => id);
 
 function Rooms() {
-  console.log("Rooms");
   const ids = useSelector(selectRooms);
 
   // dispatch fetchListStart when component mounts
