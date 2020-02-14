@@ -1,14 +1,22 @@
 @import "src/styles/colors";
 
 .li {
+  list-style: none;
+  border-top: 1px solid #ddd;
+  font-family: Helvetica, sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  color: $black;
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  list-style: none;
+  justify-content: baseline;
   padding: 0.5rem 1rem;
-  border-top: 1px solid #ddd;
-  cursor: pointer;
-  font-family: Helvetica, sans-serif;
+  &:focus {
+    outline: 3px solid $orange;
+  }
 }
 
 .liHover {

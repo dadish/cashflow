@@ -1,9 +1,24 @@
 @import "src/styles/colors";
 
+.nav {
+  max-width: 20rem;
+  margin: 1rem auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.key {
+  text-align: center;
+}
+
 .ul {
   border: 1px solid #ddd;
   border-top: none;
-  margin: 1rem auto;
   padding: 0;
-  max-width: 20rem;
+  width: 100%;
+  &:focus {
+    outline: 3px solid $orange;
+  }
 }
