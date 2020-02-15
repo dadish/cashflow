@@ -93,17 +93,18 @@ function Rooms({ children }) {
 
   // render list of rooms
   return (
-    <nav aria-labelledby="game-rooms-list" className={styles.nav}>
+    <nav
+      aria-labelledby="game-rooms-list"
+      className={styles.nav}
+      tabIndex="0"
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       <h2 id="game-rooms-list" className={styles.title}>
         Game Rooms List
       </h2>
       <h4 className={styles.key}>{focus.key}</h4>
-      <ul
-        className={styles.ul}
-        tabIndex="0"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      >
+      <ul className={styles.ul}>
         {ids.map((id, index) => (
           <Room
             id={id}

@@ -3,6 +3,12 @@
 .nav {
   max-width: 20rem;
   margin: 1rem auto;
+  &:focus {
+    outline: none;
+    .ul {
+      outline: 3px solid $orange;
+    }
+  }
 }
 
 .title {
@@ -18,7 +24,4 @@
   border-top: none;
   padding: 0;
   width: 100%;
-  &:focus {
-    outline: 3px solid $orange;
-  }
 }

@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Greetings path="/" />
       <Rooms path="/rooms">
-        <SelectRoom path=":id" />
+        <SelectRoom path=":roomId" />
       </Rooms>
     </Router>
   );
