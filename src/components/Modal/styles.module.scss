@@ -1,0 +1,22 @@
+@import "src/styles/colors";
+
+.base {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  left: 50%;
+  top: 100%;
+  padding: 2rem;
+  background-color: $white;
+  transform: translateX(-50%);
+}
+
+.afterOpen {
+  top: 8%;
+  transition: top 400ms ease-out;
+}
+
+.beforeClose {
+  transition: top 400ms ease-in;
+  top: 100%;
+}
