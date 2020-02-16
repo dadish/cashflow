@@ -1,5 +1,13 @@
 @import "src/styles/colors";
 
 .content {
-  background-color: $orange;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  background-color: $white;
+  opacity: 1;
 }
