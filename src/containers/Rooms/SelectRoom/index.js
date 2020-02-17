@@ -50,7 +50,7 @@ const SelectRoom = ({ roomId, navigate }) => {
         <Form>
           {!!room.password && (
             <InputPassword
-              label="Password: "
+              label="Password"
               name="password"
               autoComplete="new-password"
             />

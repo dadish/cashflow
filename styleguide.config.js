@@ -1,4 +1,5 @@
 module.exports = {
   skipComponentsWithoutExample: true,
-  pagePerSection: true
+  pagePerSection: true,
+  require: ["src/index.scss"]
 };
