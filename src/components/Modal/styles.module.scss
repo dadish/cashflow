@@ -1,4 +1,7 @@
 @import "src/styles/colors";
+@import "src/styles/elevation";
+
+$transition-time: 120ms;
 
 .base {
   position: absolute;
@@ -9,14 +12,15 @@
   padding: 2rem;
   background-color: $white;
   transform: translateX(-50%);
+  @include elevateTo12;
 }
 
 .afterOpen {
   top: 8%;
-  transition: top 400ms ease-out;
+  transition: top $transition-time ease-out;
 }
 
 .beforeClose {
-  transition: top 400ms ease-in;
+  transition: top $transition-time ease-in;
   top: 100%;
 }
