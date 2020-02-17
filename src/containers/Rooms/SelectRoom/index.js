@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import Modal, { TRANSITION_TIME } from "src/components/Modal";
 import Button from "src/components/Button";
@@ -41,6 +42,9 @@ const SelectRoom = ({ roomId, navigate }) => {
         initialValues={{
           password: ""
         }}
+        validationSchema={Yup.object({
+          password: Yup.string().required("Required")
+        })}
         onSubmit={handleSubmit}
       >
         <Form>
