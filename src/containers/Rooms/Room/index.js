@@ -7,7 +7,7 @@ import { Link } from "@reach/router";
 import { selectRoom } from "src/containers/Rooms/selectors";
 import styles from "./styles.module.scss";
 
-function Room({ id, inFocus }) {
+function Room({ id, inFocus, onFocus }) {
   const liElement = useRef(null);
   const room = useSelector(selectRoom(id));
   const [styleNames, updateStyleNames] = useImmer({ [styles.li]: true });
@@ -55,6 +55,7 @@ function Room({ id, inFocus }) {
         onPointerLeave={handlePointerLeave}
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
+        onFocus={() => onFocus(id)}
       >
         <div className={styles.playersCount}>
           <span className={styles.playersCountTxt}>

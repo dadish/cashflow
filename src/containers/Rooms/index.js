@@ -91,6 +91,13 @@ function Rooms({ children }) {
     return () => Mousetrap.unbind("tab");
   }, [focus, updateFocus]);
 
+  const handleRoomFocus = roomId => {
+    updateFocus(draft => {
+      draft.inFocus = true;
+      draft.focusId = roomId;
+    });
+  };
+
   // render list of rooms
   return (
     <nav
@@ -110,6 +117,7 @@ function Rooms({ children }) {
             id={id}
             key={id}
             inFocus={focus.inFocus && id === focus.focusId}
+            onFocus={handleRoomFocus}
           />
         ))}
       </ul>
