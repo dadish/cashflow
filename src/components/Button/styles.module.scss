@@ -2,10 +2,33 @@
 @import "src/styles/elevation";
 
 .container {
+  font-size: 1rem;
   padding: 0.5rem;
   min-width: 10rem;
   background-color: $white;
   color: $black;
   border: 1px solid $orange;
   border-radius: 2px;
+  box-sizing: border-box;
+  &:hover {
+    box-shadow: 0px 0px 1px 1px $orange + #444;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $orange;
+    color: $white;
+  }
+}
+
+.disabled {
+  color: $gray;
+  border: 1px solid $gray;
+  &:hover {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  &:active {
+    background-color: $white;
+    color: $gray;
+  }
 }
