@@ -8,10 +8,12 @@ const Input = ({ className, label, ...props }) => {
   const type = props.type || "text";
   const [field, meta] = useField({ type, ...props });
   return (
-    <>
-      <label htmlFor={props.id || props.name}>{label}</label>
+    <div className={styles.container}>
+      <label className={styles.label} htmlFor={props.id || props.name}>
+        {label}
+      </label>
       <input
-        className={classnames(styles.container, className)}
+        className={classnames(styles.input, className)}
         type={type}
         {...props}
         {...field}
@@ -19,7 +21,7 @@ const Input = ({ className, label, ...props }) => {
       {meta.touched && meta.error ? (
         <div className={styles.error}>{meta.error}</div>
       ) : null}
-    </>
+    </div>
   );
 };
 
