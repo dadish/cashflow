@@ -5,8 +5,8 @@ $transition-time: 120ms;
 
 .base {
   position: absolute;
-  width: 20rem;
-  height: 20rem;
+  min-width: 15rem;
+  min-height: 15rem;
   left: 50%;
   top: 100%;
   padding: 2rem;

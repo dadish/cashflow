@@ -1,14 +1,15 @@
 import React from "react";
 import ReactModal from "react-modal";
+import classnames from "classnames";
 
 import styles from "./styles.module.scss";
 
 export const TRANSITION_TIME = 120;
 
-const Modal = props => (
+const Modal = ({ className, ...props }) => (
   <ReactModal
     className={{
-      base: styles.base,
+      base: classnames(styles.base, className),
       afterOpen: styles.afterOpen,
       beforeClose: styles.beforeClose
     }}
