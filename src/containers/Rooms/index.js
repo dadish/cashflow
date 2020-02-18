@@ -4,7 +4,7 @@ import { useImmer } from "use-immer";
 import Mousetrap from "mousetrap";
 import findIndex from "ramda/src/findIndex";
 
-import { subscribeToList } from "./reducer";
+import { subscribeToList, unsubscribeFromList } from "./reducer";
 import Room from "./Room";
 import styles from "./styles.module.scss";
 
@@ -17,6 +17,7 @@ function Rooms({ children }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(subscribeToList({ limit: 13 }));
+    return () => dispatch(unsubscribeFromList({}));
   }, [dispatch]);
 
   // manage the focus state
