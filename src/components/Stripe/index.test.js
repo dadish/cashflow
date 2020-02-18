@@ -4,6 +4,8 @@ import fastTrackImg from "src/assets/img/fasttrack.png";
 import fastTrackData from "src/assets/img/fasttrack.json";
 import { Stripe, mapState } from "./";
 
+const mount = a => a;
+
 const props = {
   collection: {
     name: "fast-track",
