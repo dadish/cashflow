@@ -1,5 +1,4 @@
 import React from "react";
-import { mount } from "enzyme";
 
 import fastTrackImg from "src/assets/img/fasttrack.png";
 import fastTrackData from "src/assets/img/fasttrack.json";
