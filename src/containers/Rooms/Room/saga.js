@@ -9,7 +9,8 @@ import {
   ignore,
   numPlayersUpdated,
   numPlayersUpdatedError,
-  removeItemSuccess
+  removeItemSuccess,
+  unsubscribeFromList
 } from "src/containers/Rooms/reducer";
 
 function* gameStartWatcher({ payload: { id } }) {
@@ -36,6 +37,9 @@ function* playersCountWatcher({ payload: { id } }) {
       return numPlayersUpdatedError({ error });
     },
     terminationPattern: ({ type, payload }) => {
+      if (type === unsubscribeFromList.type) {
+        return true;
+      }
       if (payload.id !== id) {
         return false;
       }
