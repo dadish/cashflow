@@ -7,7 +7,7 @@ import Modal, { TRANSITION_TIME } from "src/components/Modal";
 import Button from "src/components/Button";
 import InputPassword from "src/components/InputPassword";
 import Spacer from "src/components/Spacer";
-import { selectRoom } from "src/containers/Rooms/selectors";
+import { selectRoom } from "src/containers/Room/selectors";
 import styles from "./styles.module.scss";
 
 const SelectRoom = ({ roomId, navigate }) => {

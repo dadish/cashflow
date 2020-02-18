@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { useImmer } from "use-immer";
 import { Link } from "@reach/router";
 
-import { selectRoom } from "src/containers/Rooms/selectors";
+import { selectRoom } from "src/containers/Room/selectors";
 import styles from "./styles.module.scss";
 
 function Room({ id, inFocus, onFocus }) {
