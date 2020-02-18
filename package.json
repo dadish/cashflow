@@ -37,7 +37,10 @@
     "assets:fetch-images": "node scripts/assetsFetchImages.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "testing-library"
+    ]
   },
   "browserslist": {
     "production": [
@@ -56,6 +59,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^10.0.0",
     "@types/jest": "^25.1.2",
+    "eslint-plugin-testing-library": "^2.2.3",
     "fs-extra": "^8.1.0",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
