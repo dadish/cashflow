@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
 
 const SelectRoom = ({ roomId, navigate }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [submittedPassword, setSubmittedPassword] = useState("");
   const room = useSelector(selectRoom(roomId));
   if (!room) {
     return null;
@@ -24,8 +25,18 @@ const SelectRoom = ({ roomId, navigate }) => {
   }
 
   function handleSubmit(values) {
-    console.log("handleSubmit", values);
+    if (room.password && values.password !== room.password) {
+      setSubmittedPassword(values.password);
+      return;
+    }
+    navigate(`/room/${roomId}`);
   }
+
+  const validationSchema = room.password
+    ? Yup.object({
+        password: Yup.string().required("Required")
+      })
+    : null;
 
   return (
     <Modal
@@ -42,24 +53,32 @@ const SelectRoom = ({ roomId, navigate }) => {
         initialValues={{
           password: ""
         }}
-        validationSchema={Yup.object({
-          password: Yup.string().required("Required")
-        })}
+        validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          {!!room.password && (
-            <InputPassword
-              label="Password"
-              name="password"
-              autoComplete="new-password"
-            />
-          )}
-          <Spacer />
-          <Button name="submit" className={styles.submit}>
-            JOIN
-          </Button>
-        </Form>
+        {formik => {
+          return (
+            <Form>
+              {!!room.password && (
+                <InputPassword
+                  label="Password"
+                  name="password"
+                  autoComplete="new-password"
+                />
+              )}
+              {room.password &&
+                formik.submitCount > 0 &&
+                formik.values.password === submittedPassword &&
+                submittedPassword !== room.password && (
+                  <div className={styles.error}>Incorrect Password.</div>
+                )}
+              <Spacer />
+              <Button name="submit" className={styles.submit}>
+                JOIN
+              </Button>
+            </Form>
+          );
+        }}
       </Formik>
     </Modal>
   );
