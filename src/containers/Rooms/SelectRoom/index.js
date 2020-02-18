@@ -21,7 +21,7 @@ const SelectRoom = ({ roomId, navigate }) => {
   // close the modal on request
   function handleRequestClose() {
     setIsOpen(false);
-    setTimeout(() => navigate("/rooms"), TRANSITION_TIME);
+    setTimeout(() => navigate("/rooms", { replace: true }), TRANSITION_TIME);
   }
 
   function handleSubmit(values) {

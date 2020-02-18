@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 
 const Greetings = () => {
   useEffect(() => {
-    navigate("/rooms");
+    navigate("/rooms", { replace: true });
   }, []);
   return null;
 };
