@@ -35,7 +35,11 @@ export function* createUpdaterSaga(settings) {
     } catch (error) {
       yield put(actionError({ error }));
     } finally {
-      if (yield cancelled() && typeof changesChannel === "function") {
+      if (
+        yield cancelled() &&
+          changesChannel &&
+          typeof changesChannel.close === "function"
+      ) {
         changesChannel.close();
       }
     }
