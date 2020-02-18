@@ -21,7 +21,9 @@ const slice = createSlice({
   initialState,
   reducers: {
     ...listHelpers.reducers,
-    subscribeToList() {},
+    subscribeToList(state) {
+      state.data = [];
+    },
     subscribeToListError(state, { payload: { error } }) {
       state.error = error;
     },
