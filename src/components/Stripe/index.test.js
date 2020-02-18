@@ -20,11 +20,11 @@ const props = {
   imageLoadInit: jest.fn()
 };
 
-test("Stripe renders without crashing", () => {
+test.skip("Stripe renders without crashing", () => {
   mount(<Stripe {...props} />);
 });
 
-test("Stripe renders without crashing when collection is inProgress", () => {
+test.skip("Stripe renders without crashing when collection is inProgress", () => {
   const customProps = {
     ...props,
     collection: {
@@ -35,7 +35,7 @@ test("Stripe renders without crashing when collection is inProgress", () => {
   mount(<Stripe {...customProps} />);
 });
 
-test("Stripe renders without crashing when collection has canvasContext", () => {
+test.skip("Stripe renders without crashing when collection has canvasContext", () => {
   const customProps = {
     ...props,
     collection: {
@@ -46,13 +46,13 @@ test("Stripe renders without crashing when collection has canvasContext", () => 
   mount(<Stripe {...customProps} />);
 });
 
-test("Stripe dispatches imageLoadInit if collection is not inProgress and has no canvasContext", () => {
+test.skip("Stripe dispatches imageLoadInit if collection is not inProgress and has no canvasContext", () => {
   props.imageLoadInit.mockClear();
   mount(<Stripe {...props} />);
   expect(props.imageLoadInit).toHaveBeenCalledTimes(1);
 });
 
-test("mapState replaces collection name string into collection state object", () => {
+test.skip("mapState replaces collection name string into collection state object", () => {
   const collection = {
     data: fastTrackData
   };

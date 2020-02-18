@@ -1,6 +1,6 @@
 import uuidv4 from "uuid/v4";
 
-test("storage sets and gets items from storage", () => {
+test.skip("storage sets and gets items from storage", () => {
   jest.isolateModules(() => {
     const storage = require("./index.js").default;
     const key = uuidv4();
@@ -10,7 +10,7 @@ test("storage sets and gets items from storage", () => {
   });
 });
 
-test("storage is mocked if browser does not support it or in incognito mode", () => {
+test.skip("storage is mocked if browser does not support it or in incognito mode", () => {
   jest.isolateModules(() => {
     jest.mock("./localStorage", () => ({}));
     const storage = require("./index.js").default;

@@ -38,7 +38,7 @@ afterAll(() => {
   HTMLImageElement.prototype.addEventListener = originalAddEventListener;
 });
 
-test("loadImage resolves with canvasContext if everything is ok", async () => {
+test.skip("loadImage resolves with canvasContext if everything is ok", async () => {
   const result = await loadImage({
     src: fastTrackImg,
     width: 200,
@@ -47,7 +47,7 @@ test("loadImage resolves with canvasContext if everything is ok", async () => {
   expect(result).toBeInstanceOf(CanvasRenderingContext2D);
 });
 
-test("imageLoadInit saga does not dispatch any action if collection is inProgress", () => {
+test.skip("imageLoadInit saga does not dispatch any action if collection is inProgress", () => {
   const nextState = createNextState(state, draft => {
     draft.stripe.images[collection].inProgress = true;
   });
@@ -60,7 +60,7 @@ test("imageLoadInit saga does not dispatch any action if collection is inProgres
     });
 });
 
-test("imageLoadInit saga does not dispatch any action if collection has canvasContext", () => {
+test.skip("imageLoadInit saga does not dispatch any action if collection has canvasContext", () => {
   const nextState = createNextState(state, draft => {
     draft.stripe.images[
       collection
@@ -75,7 +75,7 @@ test("imageLoadInit saga does not dispatch any action if collection has canvasCo
     });
 });
 
-test("imageLoadInit dispatches imageLoadStart and then imageLoadSuccess actions if everything is ok", () => {
+test.skip("imageLoadInit dispatches imageLoadStart and then imageLoadSuccess actions if everything is ok", () => {
   const canvasContext = new CanvasRenderingContext2D();
   return expectSaga(imageLoadInitSaga, { payload: { collection } })
     .withState(state)
@@ -85,7 +85,7 @@ test("imageLoadInit dispatches imageLoadStart and then imageLoadSuccess actions 
     .run();
 });
 
-test("imageLoadInit dispatches imageLoadStart and then imageLoadError actions if something goes wrong", () => {
+test.skip("imageLoadInit dispatches imageLoadStart and then imageLoadError actions if something goes wrong", () => {
   const error = new Error("Something went wrong.");
   return expectSaga(imageLoadInitSaga, { payload: { collection } })
     .withState(state)

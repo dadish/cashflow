@@ -27,11 +27,11 @@ const props = {
   color: colors.red
 };
 
-test("selectStripeImgData returns null if no canvasContext available for a collection", () => {
+test.skip("selectStripeImgData returns null if no canvasContext available for a collection", () => {
   expect(selectStripeImgData(state, props)).toBe(null);
 });
 
-test("selectStripeImgData returns cached ImageData if collection and name are the same", () => {
+test.skip("selectStripeImgData returns cached ImageData if collection and name are the same", () => {
   const canvasContext = new CanvasRenderingContext2D();
   const imageData = { data: [] };
   canvasContext.getImageData.mockClear();
@@ -48,10 +48,10 @@ test("selectStripeImgData returns cached ImageData if collection and name are th
   expect(canvasContext.getImageData).toHaveBeenCalledTimes(1);
 });
 
-test("selectStripeBase64Image returns null if there is no canvasContext available for a collection", () => {
+test.skip("selectStripeBase64Image returns null if there is no canvasContext available for a collection", () => {
   expect(selectStripeBase64Image(state, props)).toBe(null);
 });
-test("selectStripeImgData returns cached ImageData if collection and name are the same", () => {
+test.skip("selectStripeImgData returns cached ImageData if collection and name are the same", () => {
   const canvasContext = new CanvasRenderingContext2D();
   const imageData = { data: [0, 0, 0, 0, 1, 2, 3, 4] };
   canvasContext.getImageData.mockClear();
