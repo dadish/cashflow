@@ -4,4 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom/extend-expect";
 
-window.CanvasRenderingContext2D = jest.fn();
+import { CanvasRenderingContext2D } from "canvas";
+
+window.CanvasRenderingContext2D = CanvasRenderingContext2D;
