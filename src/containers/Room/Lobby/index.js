@@ -7,11 +7,7 @@ import styles from "./styles.module.scss";
 
 const Lobby = ({ roomId }) => {
   const room = useSelector(selectRoom(roomId));
-  const players = [...room.players, null, null, null, null, null, null].slice(
-    0,
-    6
-  );
-  console.log(players);
+  const players = [...room.players, {}, {}, {}, {}, {}, {}].slice(0, 6);
   return (
     <div className={styles.container}>
       <h3>Lobby</h3>
