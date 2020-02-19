@@ -2,6 +2,8 @@ import { createSlice, createNextState } from "@reduxjs/toolkit";
 
 import * as listHelpers from "src/redux/listReducerHelpers";
 import findIndex from "ramda/src/findIndex";
+import isEmpty from "ramda/src/isEmpty";
+import { applyDiff } from "deep-diff";
 
 export const createItem = listHelpers.createItem;
 
@@ -28,23 +30,27 @@ const slice = createSlice({
       state.error = error;
     },
     unsubscribeFromList() {},
-    gameStarted(state, { payload: { id } }) {
-      const itemIndex = findIndex(room => room.id === id, state.data);
-      if (itemIndex < 0) {
+    fetchItemSuccess(state, { payload: { id, data } }) {
+      const itemIndex = findIndex(item => item.id === id, state.data);
+      if (itemIndex > -1 || isEmpty(id) || isEmpty(data)) {
         return;
       }
-      state.data[itemIndex].gameState.gameStarted = true;
+      state.data.unshift(createItem(data));
     },
-    gameStartedError() {},
-    ignore() {},
-    numPlayersUpdated(state, { payload: { id, value } }) {
-      const itemIndex = findIndex(room => room.id === id, state.data);
-      if (itemIndex < 0) {
+    updateRoomSuccess(state, { payload: { id, data } }) {
+      const roomIndex = findIndex(room => room.id === id, state.data);
+      if (roomIndex < 0) {
         return;
       }
-      state.data[itemIndex].numPlayers = value;
+      applyDiff(state.data[roomIndex], data);
     },
-    numPlayersUpdatedError() {}
+    updateRoomError(state, { payload: { id, error } }) {
+      const roomIndex = findIndex(room => room.id === id, state.data);
+      if (roomIndex < 0) {
+        return;
+      }
+      state.data[roomIndex].error = error;
+    }
   }
 });
 
@@ -56,24 +62,13 @@ export const {
   subscribeToList,
   subscribeToListError,
   unsubscribeFromList,
-  gameStarted,
-  gameStartedError,
-  ignore,
-  numPlayersUpdated,
-  numPlayersUpdatedError,
-  fetchListStart,
-  fetchListFail,
-  fetchListError,
-  fetchListSuccess,
+  updateRoomSuccess,
+  updateRoomError,
   fetchItemStart,
-  fetchItemFail,
   fetchItemError,
   fetchItemSuccess,
   updateItemSuccess,
-  removeFirstItem,
-  removeLastItem,
   removeItemStart,
-  removeItemFail,
   removeItemError,
   removeItemSuccess
 } = actions;

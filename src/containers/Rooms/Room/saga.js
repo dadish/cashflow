@@ -4,38 +4,24 @@ import { db } from "src/services/Firebase";
 import { createUpdaterSaga } from "src/redux/sagaHelpers";
 import {
   fetchItemSuccess,
-  gameStarted,
-  gameStartedError,
-  ignore,
-  numPlayersUpdated,
-  numPlayersUpdatedError,
   removeItemSuccess,
-  unsubscribeFromList
+  unsubscribeFromList,
+  updateRoomSuccess,
+  updateRoomError
 } from "src/containers/Rooms/reducer";
+import { isEmpty } from "ramda";
 
-function* gameStartWatcher({ payload: { id } }) {
+function* roomUpdater({ payload: { id } }) {
   yield call(createUpdaterSaga, {
-    dbRef: db.ref(`/rooms/${id}/gameState/gameStarted`),
-    actionSuccess: ([key, value]) => (value ? gameStarted({ id }) : ignore()),
-    actionError: gameStartedError,
-    terminationPattern: ({ type, payload }) =>
-      type === gameStarted.toString() && payload.id === id
-  });
-}
-
-function* playersCountWatcher({ payload: { id } }) {
-  yield call(createUpdaterSaga, {
-    dbRef: db.ref(`/rooms/${id}/players`),
-    normalizeData: ([key, players]) => {
-      if (!players || !players.length) {
+    dbRef: db.ref(`/rooms/${id}`),
+    normalizeData: ([id, data]) => {
+      if (!data || isEmpty(data) || isEmpty(data.gameState)) {
         return {};
       }
-      return { id, value: players.filter(({ userId }) => userId).length };
+      return { id, data: { id, ...data } };
     },
-    actionSuccess: numPlayersUpdated,
-    actionError: ({ error }) => {
-      return numPlayersUpdatedError({ error });
-    },
+    actionSuccess: updateRoomSuccess,
+    actionError: updateRoomError,
     terminationPattern: ({ type, payload }) => {
       if (type === unsubscribeFromList.type) {
         return true;
@@ -43,12 +29,18 @@ function* playersCountWatcher({ payload: { id } }) {
       if (payload.id !== id) {
         return false;
       }
-      return [removeItemSuccess.type, gameStarted.type].includes(type);
+      if (removeItemSuccess.type === type) {
+        return true;
+      }
+      if (
+        type === updateRoomSuccess.type &&
+        payload.data.gameState.gameStarted
+      ) {
+        return true;
+      }
+      return false;
     }
   });
 }
 
-export default [
-  takeEvery(fetchItemSuccess, gameStartWatcher),
-  takeEvery(fetchItemSuccess, playersCountWatcher)
-];
+export default [takeEvery(fetchItemSuccess, roomUpdater)];

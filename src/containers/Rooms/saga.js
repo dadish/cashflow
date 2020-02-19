@@ -10,8 +10,7 @@ import {
   unsubscribeFromList,
   MAX_ITEMS_NUMBER,
   removeItemSuccess,
-  removeItemStart,
-  ignore
+  removeItemStart
 } from "./reducer";
 
 function* roomAddWatcher({ payload: { limit } }) {
@@ -22,26 +21,12 @@ function* roomAddWatcher({ payload: { limit } }) {
       .orderByChild("timeCreated"),
     event: "child_added",
     normalizeData: ([id, data]) => {
-      const {
-        chatlog,
-        decks,
-        fastTrackSpaces,
-        players,
-        playerOrder,
-        ...rest
-      } = data;
-      return {
-        id,
-        data: {
-          id,
-          players,
-          numPlayers: players.filter(({ userId }) => userId).length,
-          ...rest
-        }
-      };
+      if (!id || !data || !data.timeCreated) {
+        return {};
+      }
+      return { id, data: { id, ...data } };
     },
-    actionSuccess: payload =>
-      payload.data.timeCreated ? fetchItemSuccess(payload) : ignore(),
+    actionSuccess: fetchItemSuccess,
     actionError: subscribeToListError,
     terminationPattern: unsubscribeFromList
   });
