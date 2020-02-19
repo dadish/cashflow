@@ -1,12 +1,11 @@
 import { createSlice, createNextState } from "@reduxjs/toolkit";
+import { applyDiff } from "deep-diff";
 
 export const initialState = createNextState(
   {
     id: "",
-    inProgress: false,
     error: null,
     players: [],
-    numPlayers: 0,
     gameState: {
       gameStarted: false,
       turn: 0,
@@ -39,6 +38,13 @@ const slice = createSlice({
         ...data
       });
     },
+    updateRoomSuccess(state, { payload: { data } }) {
+      data.error = state.error;
+      applyDiff(state, data);
+    },
+    updateRoomError(state, { payload: { error } }) {
+      state.error = error;
+    },
     leaveRoom() {}
   }
 });
@@ -51,5 +57,7 @@ export const {
   joinRoomStart,
   joinRoomError,
   joinRoomSuccess,
+  updateRoomSuccess,
+  updateRoomError,
   leaveRoom
 } = actions;
