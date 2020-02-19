@@ -4,12 +4,13 @@ import classnames from "classnames";
 import { useImmer } from "use-immer";
 import { Link } from "@reach/router";
 
-import { selectRoom } from "src/containers/Room/selectors";
+import { selectRoom, selectNumPlayers } from "src/containers/Room/selectors";
 import styles from "./styles.module.scss";
 
 function Room({ id, inFocus, onFocus }) {
   const liElement = useRef(null);
   const room = useSelector(selectRoom(id));
+  const numPlayers = useSelector(selectNumPlayers(id));
   const [styleNames, updateStyleNames] = useImmer({ [styles.li]: true });
   const className = classnames(styleNames);
   function handlePointerEnter() {
@@ -59,7 +60,7 @@ function Room({ id, inFocus, onFocus }) {
       >
         <div className={styles.playersCount}>
           <span className={styles.playersCountTxt}>
-            [{room.numPlayers}/{room.maxPlayers}]
+            [{numPlayers}/{room.maxPlayers}]
           </span>
         </div>
         <div className={styles.name}>

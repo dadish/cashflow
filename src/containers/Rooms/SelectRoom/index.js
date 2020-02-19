@@ -7,13 +7,14 @@ import Modal, { TRANSITION_TIME } from "src/components/Modal";
 import Button from "src/components/Button";
 import InputPassword from "src/components/InputPassword";
 import Spacer from "src/components/Spacer";
-import { selectRoom } from "src/containers/Room/selectors";
+import { selectRoom, selectNumPlayers } from "src/containers/Room/selectors";
 import styles from "./styles.module.scss";
 
 const SelectRoom = ({ roomId, navigate }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [submittedPassword, setSubmittedPassword] = useState("");
   const room = useSelector(selectRoom(roomId));
+  const numPlayers = useSelector(selectNumPlayers(roomId));
   if (!room) {
     return null;
   }
@@ -46,7 +47,7 @@ const SelectRoom = ({ roomId, navigate }) => {
     >
       <h3 className={styles.title}>Room: {room.name}</h3>
       <h4 className={styles.playersCount}>
-        Players: {room.numPlayers}/{room.maxPlayers}
+        Players: {numPlayers}/{room.maxPlayers}
       </h4>
       {room.gameState.gameStarted && <h4>Game Started</h4>}
       <Formik
