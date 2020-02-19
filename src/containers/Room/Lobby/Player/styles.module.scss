@@ -1,0 +1,43 @@
+@import "src/styles/colors";
+
+.container {
+  width: 90%;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 0.25rem 1rem;
+  margin: 0.25rem;
+  border: 1px solid $black;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.color0 {
+  border: 1px solid $player0-color;
+}
+.color1 {
+  border: 1px solid $player1-color;
+}
+.color2 {
+  border: 1px solid $player2-color;
+}
+.color3 {
+  border: 1px solid $player3-color;
+}
+.color4 {
+  border: 1px solid $player4-color;
+}
+.color5 {
+  border: 1px solid $player5-color;
+}
+
+.img {
+  height: 3rem;
+}
+
+.name {
+  margin-left: 2rem;
+  font-size: 1.25rem;
+}

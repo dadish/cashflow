@@ -15,7 +15,14 @@ const colors = {
   gray: "#aaaaaa",
   white: "#ffffff",
   black: "#111111",
-  silver: "#dddddd"
+  silver: "#dddddd",
+
+  player0: "#775478",
+  player1: "#A8B240",
+  player2: "#E2905D",
+  player3: "#769BA3",
+  player4: "#EE4136",
+  player5: "#81888F"
 };
 
 export default colors;
